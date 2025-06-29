@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <title>Game Zone</title>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <div class="loading-logo">🎮</div>
+      <div class="loading-text">Game Zone</div>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cursor Trail -->
+  <div class="cursor-trail" id="cursorTrail"></div>
+
+  <!-- Animated background effects -->
+  <div class="gradient-bg" id="gradient"></div>
+  <div class="gradient-stars" id="stars"></div>
+  
+  <div class="geometric-bg" id="geometric">
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+  </div>
+  
+  <div class="wave-bg" id="waves">
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+  </div>
+  
+  <div class="dots-bg" id="dots"></div>
+  
+  <div class="neural-bg" id="neural"></div>
+  
+  <div class="flashlight-bg" id="flashlight"></div>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m18 15-6-6-6 6"/>
+      </svg>
+  </button>
+  
+  <!-- Top Navigation -->
+  <nav class="top-nav">
+    <div class="nav-brand">
+      <span class="brand-icon">🎮</span>
+      <span class="brand-text">Game Zone</span>
+    </div>
+    <div class="nav-controls">
+      <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+        <span class="theme-icon">🌙</span>
+      </button>
+      <button class="bg-menu-button" id="bgMenuButton" title="Change Background">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"></circle>
+          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="bg-dropdown" id="bgDropdown">
+      <div class="bg-option" data-bg="gradient">🌈 Gradient</div>
+      <div class="bg-option" data-bg="stars">⭐ Stars</div>
+      <div class="bg-option" data-bg="waves">🌊 Waves</div>
+      <div class="bg-option" data-bg="dots">⚪ Dots</div>
+      <div class="bg-option" data-bg="neural">🧠 Neural</div>
+      <div class="bg-option" data-bg="flashlight">💡 Flashlight</div>
+    </div>
+  </nav>
+
+<main>
+  <section id="game-zone-page">
+      <div class="hero-section">
+        <h1 class="hero-title">
+          <span class="title-word" data-text="Game">Game</span>
+          <span class="title-word" data-text="Zone">Zone</span>
+        </h1>
+        <p class="hero-subtitle">Experience the future of web gaming</p>
+        <div class="hero-cta">
+          <button class="cta-button" onclick="document.querySelector('.games-container').scrollIntoView({behavior: 'smooth'})">
+            <span>Explore Games</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+
+
+      <div class="games-section">
+        <div class="section-header">
+          <h2 class="section-title">Featured Games</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="games-filter">
+          <button class="filter-btn active" data-filter="all">All Games</button>
+          <button class="filter-btn" data-filter="strategy">Strategy</button>
+          <button class="filter-btn" data-filter="puzzle">Puzzle</button>
+          <button class="filter-btn" data-filter="arcade">Arcade</button>
+          <button class="filter-btn" data-filter="music">Music</button>
+          <button class="filter-btn" data-filter="adventure">Adventure</button>
+          <button class="filter-btn" data-filter="ai">AI</button>
+        </div>
+        <div class="games-container">
+          <div class="game-card" data-category="strategy" data-aos="zoom-in" data-aos-delay="100">
+            <div class="game-card-header">
+              <img src="Images/9x9_Tic-Tac_Game.png" alt="9x9 Tic-Tac-Toe" class="game-logo">
+              <div class="game-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-text">4.8</span>
+              </div>
+            </div>
+            <div class="game-info">
+              <h3 class="game-title">9x9 Tic-Tac-Toe</h3>
+              <p class="game-description">The classic Tic-Tac-Toe expanded to a challenging 9x9 grid with strategic depth.</p>
+              <div class="game-tags">
+                <span class="tag">Strategy</span>
+                <span class="tag">Extended</span>
+              </div>
+            </div>
+            <div class="game-actions">
+              <button class="play-btn" onclick="window.open('https://surajsk2003.github.io/9x9-Tic-Tac-game/', '_blank')"
+                <span>Play Now</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5,3 19,12 5,21"/>
+                </svg>
+              </button>
+              <button class="info-btn" title="More Info">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 16v-4M12 8h.01"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="game-card" data-category="strategy" data-aos="zoom-in" data-aos-delay="200">
+            <div class="game-card-header">
+              <img src="Images/Chess.png" alt="Chess Game" class="game-logo">
+              <div class="game-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-text">4.9</span>
+              </div>
+            </div>
+            <div class="game-info">
+              <h3 class="game-title">Chess</h3>
+              <p class="game-description">Classic chess game with intuitive controls and strategic gameplay.</p>
+              <div class="game-tags">
+                <span class="tag">Strategy</span>
+                <span class="tag">Classic</span>
+              </div>
+            </div>
+            <div class="game-actions">
+              <button class="play-btn" onclick="window.open('https://surajsk2003.github.io/Chess/', '_blank')"
+                <span>Play Now</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5,3 19,12 5,21"/>
+                </svg>
+              </button>
+              <button class="info-btn" title="More Info">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 16v-4M12 8h.01"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="game-card" data-category="puzzle" data-aos="zoom-in" data-aos-delay="300">
+            <div class="game-card-header">
+              <img src="Images/Minesweeper-Game.png" alt="Minesweeper Game" class="game-logo">
+              <div class="game-rating">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-text">4.7</span>
+              </div>
+            </div>
+            <div class="game-info">
+              <h3 class="game-title">Minesweeper</h3>
+              <p class="game-description">Test your logic and memory in this classic puzzle game with multiple difficulty levels.</p>
+              <div class="game-tags">
+                <span class="tag">Puzzle</span>
+                <span class="tag">Logic</span>
+              </div>
+            </div>
+            <div class="game-actions">
+              <button class="play-btn" onclick="window.open('https://surajsk2003.github.io/Minesweeper/', '_blank')">
+                <span>Play Now</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5,3 19,12 5,21"/>
+                </svg>
+              </button>
+              <button class="info-btn" title="More Info">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 16v-4M12 8h.01"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="game-card" data-category="arcade" data-aos="zoom-in" data-aos-delay="400">
+            <div class="game-card-header">
+              <img src="Images/NEON_SNAKE_NEXUS.png" alt="Neon Snake Nexus" class="game-logo">
+              <div class="game-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-text">4.9</span>
+              </div>
+            </div>
+            <div class="game-info">
+              <h3 class="game-title">Neon Snake</h3>
+              <p class="game-description">Classic snake game with stunning neon graphics and smooth gameplay.</p>
+              <div class="game-tags">
+                <span class="tag">Arcade</span>
+                <span class="tag">Classic</span>
+              </div>
+            </div>
+            <div class="game-actions">
+              <button class="play-btn" onclick="window.open('https://surajsk2003.github.io/Neon-Snake-Nexus/', '_blank')">
+                <span>Play Now</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5,3 19,12 5,21"/>
+                </svg>
+              </button>
+              <button class="info-btn" title="More Info">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 16v-4M12 8h.01"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="game-card" data-category="arcade" data-aos="zoom-in" data-aos-delay="500">
+            <div class="game-card-header">
+              <img src="Images/Rock-Paper-Scissors.png" alt="Rock Paper Scissors" class="game-logo">
+              <div class="game-rating">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-text">4.5</span>
+              </div>
+            </div>
+            <div class="game-info">
+              <h3 class="game-title">Rock Paper Scissors</h3>
+              <p class="game-description">The timeless game of chance and strategy with a modern interface.</p>
+              <div class="game-tags">
+                <span class="tag">Arcade</span>
+                <span class="tag">Classic</span>
+              </div>
+            </div>
+            <div class="game-actions">
+              <button class="play-btn" onclick="window.open('https://surajsk2003.github.io/Rock-Paper-Scissors/', '_blank')"
+                <span>Play Now</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5,3 19,12 5,21"/>
+                </svg>
+              </button>
+              <button class="info-btn" title="More Info">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 16v-4M12 8h.01"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="game-card" data-category="puzzle" data-aos="zoom-in" data-aos-delay="600">
+            <div class="game-card-header">
+              <img src="Images/Typing_Speed_Challenge.png" alt="Typing Speed Challenge" class="game-logo">
+              <div class="game-rating">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-text">4.6</span>
+              </div>
+            </div>
+            <div class="game-info">
+              <h3 class="game-title">Typing Speed Challenge</h3>
+              <p class="game-description">Test and improve your typing speed and accuracy with this fun challenge.</p>
+              <div class="game-tags">
+                <span class="tag">Skill</span>
+                <span class="tag">Challenge</span>
+              </div>
+            </div>
+            <div class="game-actions">
+              <button class="play-btn" onclick="window.open('https://surajsk2003.github.io/Typing-Speed-Challenge/', '_blank')"
+                <span>Play Now</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5,3 19,12 5,21"/>
+                </svg>
+              </button>
+              <button class="info-btn" title="More Info">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 16v-4M12 8h.01"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="game-card" data-category="strategy" data-aos="zoom-in" data-aos-delay="700">
+            <div class="game-card-header">
+              <img src="Images/Tricore_Game.png" alt="Tricore Game" class="game-logo">
+              <div class="game-rating">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-text">4.4</span>
+              </div>
+            </div>
+            <div class="game-info">
+              <h3 class="game-title">Tricore</h3>
+              <p class="game-description">An engaging puzzle or strategy game with unique mechanics and challenging levels.</p>
+              <div class="game-tags">
+                <span class="tag">Strategy</span>
+                <span class="tag">Unique</span>
+              </div>
+            </div>
+            <div class="game-actions">
+              <button class="play-btn" onclick="window.open('https://surajsk2003.github.io/Tricore/', '_blank')"
+                <span>Play Now</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5,3 19,12 5,21"/>
+                </svg>
+              </button>
+              <button class="info-btn" title="More Info">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 16v-4M12 8h.01"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="game-card" data-category="arcade" data-aos="zoom-in" data-aos-delay="800">
+            <div class="game-card-header">
+              <img src="Images/Soccer Slime.png" alt="Soccer Slime" class="game-logo">
+              <div class="game-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-text">4.7</span>
+              </div>
+            </div>
+            <div class="game-info">
+              <h3 class="game-title">Soccer Slime</h3>
+              <p class="game-description">Fun physics-based soccer game with bouncy slime characters and exciting gameplay.</p>
+              <div class="game-tags">
+                <span class="tag">Sports</span>
+                <span class="tag">Physics</span>
+              </div>
+            </div>
+            <div class="game-actions">
+              <button class="play-btn" onclick="window.open('https://surajsk2003.github.io/Soccer-Slime/', '_blank')">
+                <span>Play Now</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5,3 19,12 5,21"/>
+                </svg>
+              </button>
+              <button class="info-btn" title="More Info">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 16v-4M12 8h.01"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="game-card" data-category="music" data-aos="zoom-in" data-aos-delay="900">
+            <div class="game-card-header">
+              <img src="Images/Interactive Piano.png" alt="Advanced Interactive Piano" class="game-logo">
+              <div class="game-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-text">4.9</span>
+              </div>
+            </div>
+            <div class="game-info">
+              <h3 class="game-title">Interactive Piano</h3>
+              <p class="game-description">Advanced virtual piano with realistic sound and multiple instruments for music creation.</p>
+              <div class="game-tags">
+                <span class="tag">Music</span>
+                <span class="tag">Creative</span>
+              </div>
+            </div>
+            <div class="game-actions">
+              <button class="play-btn" onclick="window.open('https://surajsk2003.github.io/Advanced-Interactive-Piano/', '_blank')">
+                <span>Play Now</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5,3 19,12 5,21"/>
+                </svg>
+              </button>
+              <button class="info-btn" title="More Info">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 16v-4M12 8h.01"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="game-card" data-category="adventure" data-aos="zoom-in" data-aos-delay="1000">
+            <div class="game-card-header">
+              <img src="Images/Ninja Adventure.png" alt="Ninja Adventure" class="game-logo">
+              <div class="game-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-text">4.8</span>
+              </div>
+            </div>
+            <div class="game-info">
+              <h3 class="game-title">Ninja Adventure</h3>
+              <p class="game-description">Action-packed ninja adventure with stealth mechanics and challenging platforming.</p>
+              <div class="game-tags">
+                <span class="tag">Action</span>
+                <span class="tag">Platform</span>
+              </div>
+            </div>
+            <div class="game-actions">
+              <button class="play-btn" onclick="window.open('https://surajsk2003.github.io/Ninja-Adventure/', '_blank')">
+                <span>Play Now</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5,3 19,12 5,21"/>
+                </svg>
+              </button>
+              <button class="info-btn" title="More Info">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 16v-4M12 8h.01"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="game-card" data-category="ai" data-aos="zoom-in" data-aos-delay="1100">
+            <div class="game-card-header">
+              <img src="Images/MindMirror.png" alt="MindMirror AI Journal" class="game-logo">
+              <div class="game-rating">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-text">4.6</span>
+              </div>
+            </div>
+            <div class="game-info">
+              <h3 class="game-title">MindMirror</h3>
+              <p class="game-description">AI-powered reflective journal that helps you understand your thoughts and emotions.</p>
+              <div class="game-tags">
+                <span class="tag">AI</span>
+                <span class="tag">Wellness</span>
+              </div>
+            </div>
+            <div class="game-actions">
+              <button class="play-btn" onclick="window.open('https://surajsk2003.github.io/MindMirror---Reflective-AI-Journal/', '_blank')">
+                <span>Try Now</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5,3 19,12 5,21"/>
+                </svg>
+              </button>
+              <button class="info-btn" title="More Info">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 16v-4M12 8h.01"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="game-card" data-category="ai" data-aos="zoom-in" data-aos-delay="1200">
+            <div class="game-card-header">
+              <img src="Images/LLMystery.png" alt="LLMystery Detective Game" class="game-logo">
+              <div class="game-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-text">4.8</span>
+              </div>
+            </div>
+            <div class="game-info">
+              <h3 class="game-title">LLMystery</h3>
+              <p class="game-description">AI-driven detective game where you solve mysteries using advanced language models.</p>
+              <div class="game-tags">
+                <span class="tag">AI</span>
+                <span class="tag">Mystery</span>
+              </div>
+            </div>
+            <div class="game-actions">
+              <button class="play-btn" onclick="window.open('https://surajsk2003.github.io/LLMystery-AI-Driven-Detective-Game/', '_blank')">
+                <span>Play Now</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5,3 19,12 5,21"/>
+                </svg>
+              </button>
+              <button class="info-btn" title="More Info">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 16v-4M12 8h.01"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+</main>
+
+    <!-- Gamer Footer -->
+    <footer class="gamer-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <span class="logo-icon">🎮</span>
+                    <span class="logo-text">GAME ZONE</span>
+                </div>
+                <p class="footer-tagline">Level up your gaming experience</p>
+                <div class="social-links">
+                    <a href="https://github.com/surajsk2003" target="_blank" class="social-btn">
+                        <span class="social-icon">🐈</span>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://github.com/surajsk2003/Suraj.in" target="_blank" class="social-btn">
+                        <span class="social-icon">💼</span>
+                        <span>Portfolio</span>
+                    </a>
+                    <a href="https://surajsk2003.github.io/Suraj.in/contact.html" target="_blank" class="social-btn">
+                        <span class="social-icon">📧</span>
+                        <span>Contact</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <div class="link-group">
+                    <h3 class="link-title">GAMES</h3>
+                    <ul>
+                        <li><a href="#">Strategy Games</a></li>
+                        <li><a href="#">Puzzle Games</a></li>
+                        <li><a href="#">Arcade Games</a></li>
+                        <li><a href="#">AI Games</a></li>
+                    </ul>
+                </div>
+                
+                <div class="link-group">
+                    <h3 class="link-title">DEVELOPER</h3>
+                    <ul>
+                        <li><a href="#">About Suraj</a></li>
+                        <li><a href="https://my-blog-lemon-mu-45.vercel.app/" target="_blank">Blog</a></li>
+                        <li><a href="#">Open Source</a></li>
+                        <li><a href="#">Collaborations</a></li>
+                    </ul>
+                </div>
+                
+                <div class="link-group">
+                    <h3 class="link-title">SUPPORT</h3>
+                    <ul>
+                        <li><a href="#">Bug Reports</a></li>
+                        <li><a href="#">Feature Requests</a></li>
+                        <li><a href="#">Game Feedback</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-divider"></div>
+            <div class="footer-credits">
+                <p>&copy; 2024 GAME ZONE | Crafted by <span class="highlight">Suraj Kumar</span></p>
+                <p class="easter-egg">Press ↑↑↓↓←→←→BA for secret mode 😎</p>
+            </div>
+        </div>
+    </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Loading screen
+        const loadingScreen = document.getElementById('loadingScreen');
+        const loadingProgress = document.querySelector('.loading-progress');
+        
+        let progress = 0;
+        const loadingInterval = setInterval(() => {
+            progress += Math.random() * 15;
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(loadingInterval);
+                setTimeout(() => {
+                    loadingScreen.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                        document.body.classList.add('loaded');
+                    }, 500);
+                }, 500);
+            }
+            loadingProgress.style.width = progress + '%';
+        }, 100);
+
+        // Cursor trail effect
+        const cursorTrail = document.getElementById('cursorTrail');
+        let mouseX = 0, mouseY = 0;
+        let trailX = 0, trailY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+        
+        function animateTrail() {
+            trailX += (mouseX - trailX) * 0.1;
+            trailY += (mouseY - trailY) * 0.1;
+            cursorTrail.style.left = trailX + 'px';
+            cursorTrail.style.top = trailY + 'px';
+            requestAnimationFrame(animateTrail);
+        }
+        animateTrail();
+
+        // Scroll to top functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('.theme-icon');
+        let isDark = true;
+        
+        themeToggle.addEventListener('click', () => {
+            isDark = !isDark;
+            document.body.classList.toggle('light-theme', !isDark);
+            themeIcon.textContent = isDark ? '🌙' : '☀️';
+        });
+
+        // Background switcher
+        const bgMenuButton = document.getElementById('bgMenuButton');
+        const bgDropdown = document.getElementById('bgDropdown');
+        
+        bgMenuButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            bgDropdown.classList.toggle('show');
+        });
+        
+        document.addEventListener('click', () => {
+            bgDropdown.classList.remove('show');
+        });
+        
+        document.querySelectorAll('.bg-option').forEach(option => {
+            option.addEventListener('click', function() {
+                switchBackground(this.getAttribute('data-bg'));
+                bgDropdown.classList.remove('show');
+            });
+        });
+
+        // Game filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const gameCards = document.querySelectorAll('.game-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                gameCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeInUp 0.5s ease';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Animated counters
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseFloat(counter.getAttribute('data-target'));
+                    const increment = target / 100;
+                    let current = 0;
+                    
+                    const updateCounter = () => {
+                        if (current < target) {
+                            current += increment;
+                            if (target < 10) {
+                                counter.textContent = current.toFixed(1);
+                            } else {
+                                counter.textContent = Math.ceil(current).toLocaleString();
+                            }
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            if (target < 10) {
+                                counter.textContent = target.toFixed(1);
+                            } else {
+                                counter.textContent = target.toLocaleString();
+                            }
+                        }
+                    };
+                    updateCounter();
+                    observer.unobserve(counter);
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.stat-number').forEach(counter => {
+            observer.observe(counter);
+        });
+
+        // Game card interactions
+        document.querySelectorAll('.play-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const gameTitle = btn.closest('.game-card').querySelector('.game-title').textContent;
+                showGameModal(gameTitle);
+            });
+        });
+        
+        switchBackground('neural');
+    });
+
+    function switchBackground(type) {
+        const backgrounds = ['gradient', 'stars', 'geometric', 'waves', 'dots', 'neural', 'flashlight'];
+        backgrounds.forEach(bg => {
+            document.getElementById(bg).classList.remove('active-bg');
+        });
+        
+        document.querySelectorAll('.bg-option').forEach(option => {
+            option.classList.remove('active');
+        });
+        
+        document.getElementById(type).classList.add('active-bg');
+        document.querySelector(`[data-bg="${type}"]`).classList.add('active');
+        
+        if (type === 'gradient') {
+            document.querySelector('.gradient-stars').classList.add('active-bg');
+        } else {
+            document.querySelector('.gradient-stars').classList.remove('active-bg');
+        }
+    }
+    
+    function showGameModal(gameTitle) {
+        const modal = document.createElement('div');
+        modal.className = 'game-modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>${gameTitle}</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>🚀 ${gameTitle} is coming soon!</p>
+                    <p>Get ready for an amazing gaming experience with cutting-edge graphics and smooth gameplay.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-notify">Notify Me</button>
+                    <button class="btn-close">Close</button>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        setTimeout(() => modal.classList.add('show'), 10);
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal || e.target.classList.contains('modal-close') || e.target.classList.contains('btn-close')) {
+                modal.classList.remove('show');
+                setTimeout(() => modal.remove(), 300);
+            }
+        });
+    }
+  </script>
+
+  <!-- AOS Animation Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 100
+    });
+  </script>
+
+</body>
+</html>
