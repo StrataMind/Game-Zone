@@ -1,0 +1,179 @@
+{
+  "name": "Game Zone - Advanced Gaming Platform",
+  "short_name": "Game Zone",
+  "description": "Experience the future of web gaming with cutting-edge graphics, smooth gameplay, and innovative mechanics.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#667eea",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["games", "entertainment", "productivity"],
+  "screenshots": [
+    {
+      "src": "/screenshots/desktop-hero.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Game Zone Hero Section"
+    },
+    {
+      "src": "/screenshots/mobile-games.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Games Collection"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Featured Games",
+      "short_name": "Games",
+      "description": "Browse our collection of featured games",
+      "url": "/#games",
+      "icons": [
+        {
+          "src": "/icons/shortcut-games.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Strategy Games",
+      "short_name": "Strategy",
+      "description": "Play strategic games",
+      "url": "/#games?filter=strategy",
+      "icons": [
+        {
+          "src": "/icons/shortcut-strategy.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Arcade Games",
+      "short_name": "Arcade",
+      "description": "Play arcade games",
+      "url": "/#games?filter=arcade",
+      "icons": [
+        {
+          "src": "/icons/shortcut-arcade.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "AI Games",
+      "short_name": "AI",
+      "description": "Experience AI-powered games",
+      "url": "/#games?filter=ai",
+      "icons": [
+        {
+          "src": "/icons/shortcut-ai.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "screenshots",
+          "accept": ["image/*"]
+        }
+      ]
+    }
+  },
+  "file_handlers": [
+    {
+      "action": "/open-game",
+      "accept": {
+        "application/json": [".game"]
+      }
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+gamezone",
+      "url": "/play?game=%s"
+    }
+  ],
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": ["focus-existing", "auto"]
+  },
+  "handle_links": "preferred",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui", "browser"],
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://gamezone.surajsk2003.dev/manifest.json"
+    }
+  ],
+  "prefer_related_applications": false
+}
