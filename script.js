@@ -694,6 +694,86 @@ class GameZone {
         category: "ai",
         tags: ["AI", "Mystery"],
         url: "https://surajsk2003.github.io/LLMystery-AI-Driven-Detective-Game/"
+      },
+      {
+        id: 13,
+        title: "2048 Elite",
+        description: "Enhanced version of the classic 2048 puzzle game with smooth animations and power-ups.",
+        image: "Images/2048-Elite.png",
+        rating: 4.7,
+        category: "puzzle",
+        tags: ["Puzzle", "Numbers"],
+        url: "https://surajsk2003.github.io/2048-Elite/"
+      },
+      {
+        id: 14,
+        title: "NeuroFlip",
+        description: "Mind-bending memory game that challenges your cognitive abilities with neural patterns.",
+        image: "Images/NeuroFlip.png",
+        rating: 4.6,
+        category: "puzzle",
+        tags: ["Memory", "Neural"],
+        url: "https://surajsk2003.github.io/NeuroFlip/"
+      },
+      {
+        id: 15,
+        title: "Hangman Classic",
+        description: "The timeless word guessing game with modern graphics and extensive vocabulary.",
+        image: "Images/Hangman.png",
+        rating: 4.5,
+        category: "puzzle",
+        tags: ["Word", "Classic"],
+        url: "https://surajsk2003.github.io/HANGMAN/"
+      },
+      {
+        id: 16,
+        title: "Nexus Bird",
+        description: "Flappy Bird inspired game with futuristic graphics and challenging obstacles.",
+        image: "Images/Nexus-Bird.png",
+        rating: 4.4,
+        category: "arcade",
+        tags: ["Arcade", "Flying"],
+        url: "https://surajsk2003.github.io/Nexus-Bird/"
+      },
+      {
+        id: 17,
+        title: "Neon Breakout",
+        description: "Classic brick breaker game with stunning neon visuals and power-up system.",
+        image: "Images/Neon-Breakout.png",
+        rating: 4.8,
+        category: "arcade",
+        tags: ["Arcade", "Neon"],
+        url: "https://surajsk2003.github.io/NEON-BREAKOUT/"
+      },
+      {
+        id: 18,
+        title: "Whack-A-Mole",
+        description: "Fast-paced reaction game where you test your reflexes against sneaky moles.",
+        image: "Images/Whack-A-Mole.png",
+        rating: 4.6,
+        category: "arcade",
+        tags: ["Reaction", "Fun"],
+        url: "https://surajsk2003.github.io/WHACK-A-MOLE/"
+      },
+      {
+        id: 19,
+        title: "ChromaVerse",
+        description: "Immersive color-based puzzle adventure with stunning visual effects.",
+        image: "Images/ChromaVerse.png",
+        rating: 4.9,
+        category: "adventure",
+        tags: ["Color", "Visual"],
+        url: "https://surajsk2003.github.io/ChromaVerse/"
+      },
+      {
+        id: 20,
+        title: "Quantum Nexus",
+        description: "Sci-fi strategy game exploring quantum mechanics with mind-bending puzzles.",
+        image: "Images/Quantum-Nexus.png",
+        rating: 4.8,
+        category: "strategy",
+        tags: ["Sci-Fi", "Quantum"],
+        url: "https://surajsk2003.github.io/Quantum-Nexus/"
       }
     ];
 

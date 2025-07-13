@@ -163,6 +163,8 @@ html {
   font-size: 16px;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   -moz-tab-size: 4;
   tab-size: 4;
 }
@@ -366,6 +368,7 @@ body {
   right: 0;
   z-index: var(--z-fixed);
   background: rgba(10, 10, 10, 0.8);
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   transition: all var(--transition-base);
@@ -784,6 +787,7 @@ body {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-2xl);
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   display: flex;
   align-items: center;
@@ -846,6 +850,7 @@ body {
   background: var(--surface);
   color: var(--text-primary);
   border: 1px solid var(--border);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 
@@ -914,6 +919,7 @@ body {
   padding: var(--space-2xl);
   text-align: center;
   transition: all var(--transition-base);
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   position: relative;
   overflow: hidden;
@@ -982,6 +988,7 @@ body {
   font-weight: var(--font-weight-medium);
   cursor: pointer;
   transition: all var(--transition-base);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 
@@ -1007,6 +1014,7 @@ body {
   border-radius: var(--radius-2xl);
   padding: var(--space-xl);
   transition: all var(--transition-base);
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   position: relative;
   overflow: hidden;
@@ -1190,6 +1198,7 @@ body {
   border: 1px solid var(--border);
   border-radius: var(--radius-2xl);
   padding: var(--space-xl);
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
 }
 
@@ -1211,7 +1220,11 @@ body {
 }
 
 .community-chat {
-  space-y: var(--space-sm);
+  /* Removed invalid space-y property */
+}
+
+.community-chat .chat-message {
+  margin-bottom: var(--space-sm);
 }
 
 .chat-message {

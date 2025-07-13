@@ -4,7 +4,7 @@ A modern, interactive gaming platform showcasing a collection of web-based games
 
 ## ✨ Features
 
-- **12 Interactive Games** across multiple categories
+- **20 Interactive Games** across multiple categories
 - **6 Dynamic Backgrounds** with smooth transitions
 - **Modern Gaming UI** with neon aesthetics and glassmorphism
 - **Responsive Design** optimized for all devices
@@ -67,6 +67,14 @@ All games are fully playable and hosted on GitHub Pages:
 10. **Ninja Adventure** - Action platformer game
 11. **MindMirror** - AI-powered reflective journal
 12. **LLMystery** - AI-driven detective game
+13. **2048 Elite** - Enhanced 2048 with power-ups
+14. **NeuroFlip** - Neural pattern memory game
+15. **Hangman Classic** - Word guessing with modern graphics
+16. **Nexus Bird** - Futuristic Flappy Bird inspired
+17. **Neon Breakout** - Classic brick breaker with neon visuals
+18. **Whack-A-Mole** - Fast-paced reaction game
+19. **ChromaVerse** - Color-based puzzle adventure
+20. **Quantum Nexus** - Sci-fi strategy with quantum mechanics
 
 ## 🛠️ Installation
 
