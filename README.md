@@ -1,6 +1,6 @@
-# 🎮 Game Zone
+# GameZone PRO
 
-A modern, interactive gaming platform showcasing a collection of web-based games with stunning visual effects and smooth animations.
+A modern, interactive gaming platform featuring a 3D animated cube logo and showcasing a collection of 20+ premium web-based games with stunning visual effects and smooth animations.
 
 ## ✨ Features
 
