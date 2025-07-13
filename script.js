@@ -1,1074 +1,1077 @@
-/**
- * Advanced Modern Game Zone JavaScript
- * Features: Particle System, Advanced Animations, Dynamic Content, Performance Optimizations
- */
+// Modern GameZone JavaScript with Enhanced Interactions
+class ModernGameZone {
+    constructor() {
+        this.games = [
+            {
+                title: "9x9 Tic-Tac-Toe",
+                description: "Extended strategy gameplay on a 9x9 grid with challenging AI opponents and multiple difficulty levels.",
+                image: "Images/9x9_Tic-Tac_Game.png",
+                rating: "⭐⭐⭐⭐⭐",
+                tags: ["Strategy", "Logic", "AI"],
+                category: "strategy",
+                url: "https://surajsk2003.github.io/9x9-Tic-Tac-game/"
+            },
+            {
+                title: "Chess Master",
+                description: "Classic chess with intuitive controls, strategic gameplay, and multiple AI difficulty levels.",
+                image: "Images/Chess.png",
+                rating: "⭐⭐⭐⭐⭐",
+                tags: ["Strategy", "Classic", "Multiplayer"],
+                category: "strategy",
+                url: "https://surajsk2003.github.io/Chess/"
+            },
+            {
+                title: "Minesweeper Pro",
+                description: "Test your logic in this classic puzzle game with multiple difficulty levels and custom boards.",
+                image: "Images/Minesweeper-Game.png",
+                rating: "⭐⭐⭐⭐⭐",
+                tags: ["Puzzle", "Logic", "Classic"],
+                category: "puzzle",
+                url: "https://surajsk2003.github.io/Minesweeper/"
+            },
+            {
+                title: "Neon Snake Nexus",
+                description: "Classic snake game reimagined with stunning neon graphics and smooth, responsive gameplay.",
+                image: "Images/NEON_SNAKE_NEXUS.png",
+                rating: "⭐⭐⭐⭐⭐",
+                tags: ["Arcade", "Neon", "Classic"],
+                category: "arcade",
+                url: "https://surajsk2003.github.io/Neon-Snake-Nexus/"
+            },
+            {
+                title: "Rock Paper Scissors",
+                description: "The timeless game of chance and strategy with a modern interface and AI opponent.",
+                image: "Images/Rock-Paper-Scissors.png",
+                rating: "⭐⭐⭐⭐",
+                tags: ["Arcade", "Classic", "Quick"],
+                category: "arcade",
+                url: "https://surajsk2003.github.io/Rock-Paper-Scissors/"
+            },
+            {
+                title: "Typing Speed Challenge",
+                description: "Test and improve your typing speed and accuracy with this engaging challenge and analytics.",
+                image: "Images/Typing_Speed_Challenge.png",
+                rating: "⭐⭐⭐⭐",
+                tags: ["Skill", "Challenge", "Educational"],
+                category: "puzzle",
+                url: "https://surajsk2003.github.io/Typing-Speed-Challenge/"
+            },
+            {
+                title: "Tricore Adventure",
+                description: "An engaging puzzle strategy game with unique tri-core mechanics and progressive difficulty.",
+                image: "Images/Tricore_Game.png",
+                rating: "⭐⭐⭐⭐",
+                tags: ["Strategy", "Unique", "Adventure"],
+                category: "strategy",
+                url: "https://surajsk2003.github.io/Tricore/"
+            },
+            {
+                title: "Soccer Slime",
+                description: "Fun physics-based soccer game with bouncy slime characters and dynamic gameplay.",
+                image: "Images/Soccer Slime.png",
+                rating: "⭐⭐⭐⭐",
+                tags: ["Sports", "Physics", "Fun"],
+                category: "arcade",
+                url: "https://surajsk2003.github.io/Soccer-Slime/"
+            },
+            {
+                title: "Interactive Piano",
+                description: "Virtual piano with realistic sound, multiple instruments, and recording capabilities.",
+                image: "Images/Interactive Piano.png",
+                rating: "⭐⭐⭐⭐⭐",
+                tags: ["Music", "Creative", "Interactive"],
+                category: "other",
+                url: "https://surajsk2003.github.io/Advanced-Interactive-Piano/"
+            },
+            {
+                title: "Ninja Adventure",
+                description: "Action-packed ninja adventure with stealth mechanics, platforming, and combat.",
+                image: "Images/Ninja Adventure.png",
+                rating: "⭐⭐⭐⭐",
+                tags: ["Action", "Platform", "Adventure"],
+                category: "arcade",
+                url: "https://surajsk2003.github.io/Ninja-Adventure/"
+            },
+            {
+                title: "MindMirror AI",
+                description: "AI-powered reflective journal that helps you understand your thoughts and emotions.",
+                image: "Images/MindMirror.png",
+                rating: "⭐⭐⭐⭐",
+                tags: ["AI", "Wellness", "Personal"],
+                category: "ai",
+                url: "https://surajsk2003.github.io/MindMirror---Reflective-AI-Journal/"
+            },
+            {
+                title: "LLMystery Detective",
+                description: "AI-driven detective game where you solve mysteries using advanced language models.",
+                image: "Images/LLMystery.png",
+                rating: "⭐⭐⭐⭐⭐",
+                tags: ["AI", "Mystery", "Detective"],
+                category: "ai",
+                url: "https://surajsk2003.github.io/LLMystery-AI-Driven-Detective-Game/"
+            },
+            {
+                title: "2048 Elite",
+                description: "Enhanced version of the classic 2048 puzzle game with power-ups and special modes.",
+                image: "Images/2028_elite.png",
+                rating: "⭐⭐⭐⭐",
+                tags: ["Puzzle", "Numbers", "Strategy"],
+                category: "puzzle",
+                url: "https://surajsk2003.github.io/2048-Elite/"
+            },
+            {
+                title: "NeuroFlip",
+                description: "Mind-bending memory game that challenges your cognitive abilities with neural patterns.",
+                image: "Images/Copilot_20250713_170216.png",
+                rating: "⭐⭐⭐⭐",
+                tags: ["Memory", "Neural", "Cognitive"],
+                category: "puzzle",
+                url: "https://surajsk2003.github.io/NeuroFlip/"
+            },
+            {
+                title: "Hangman Classic",
+                description: "The timeless word guessing game with modern graphics and extensive word database.",
+                image: "Images/Hangman.png",
+                rating: "⭐⭐⭐⭐",
+                tags: ["Word", "Classic", "Educational"],
+                category: "puzzle",
+                url: "https://surajsk2003.github.io/HANGMAN/"
+            },
+            {
+                title: "Nexus Bird",
+                description: "Flappy Bird inspired game with futuristic graphics, obstacles, and power-ups.",
+                image: "Images/Nexus_bird.png",
+                rating: "⭐⭐⭐⭐",
+                tags: ["Arcade", "Flying", "Endless"],
+                category: "arcade",
+                url: "https://surajsk2003.github.io/Nexus-Bird/"
+            },
+            {
+                title: "Neon Breakout",
+                description: "Classic brick breaker game with stunning neon visuals and dynamic effects.",
+                image: "Images/Breakout.png",
+                rating: "⭐⭐⭐⭐⭐",
+                tags: ["Arcade", "Neon", "Classic"],
+                category: "arcade",
+                url: "https://surajsk2003.github.io/NEON-BREAKOUT/"
+            },
+            {
+                title: "Whack-A-Mole",
+                description: "Fast-paced reaction game where you test your reflexes and hand-eye coordination.",
+                image: "Images/Whack-A-Mole.png",
+                rating: "⭐⭐⭐⭐",
+                tags: ["Reaction", "Fun", "Quick"],
+                category: "arcade",
+                url: "https://surajsk2003.github.io/WHACK-A-MOLE/"
+            },
+            {
+                title: "ChromaVerse",
+                description: "Immersive color-based puzzle adventure with stunning visual effects and mechanics.",
+                image: "Images/ChromaVerse.png",
+                rating: "⭐⭐⭐⭐⭐",
+                tags: ["Color", "Visual", "Puzzle"],
+                category: "puzzle",
+                url: "https://surajsk2003.github.io/ChromaVerse/"
+            },
+            {
+                title: "Quantum Nexus",
+                description: "Sci-fi strategy game exploring quantum mechanics with mind-bending puzzle elements.",
+                image: "Images/Quantum-Nexas.png",
+                rating: "⭐⭐⭐⭐⭐",
+                tags: ["Sci-Fi", "Quantum", "Strategy"],
+                category: "strategy",
+                url: "https://surajsk2003.github.io/Quantum-Nexus/"
+            }
+        ];
 
-class GameZone {
-  constructor() {
-    this.init();
-    this.setupEventListeners();
-    this.setupIntersectionObserver();
-    this.setupParticleSystem();
-    this.setupCursorEffects();
-    this.loadGames();
-  }
+        this.currentFilter = 'all';
+        this.currentView = 'grid';
+        this.searchTimeout = null;
+        this.isLoading = true;
 
-  async init() {
-    // Initialize loading screen
-    await this.showLoadingScreen();
-    
-    // Initialize theme
-    this.initializeTheme();
-    
-    // Initialize smooth scrolling
-    this.initializeSmoothScrolling();
-    
-    // Initialize navbar scroll effect
-    this.initializeNavbarScroll();
-    
-    // Initialize background effects
-    this.initializeBackgroundEffects();
-    
-    // Hide loading screen after initialization
-    this.hideLoadingScreen();
-  }
+        this.init();
+    }
 
-  showLoadingScreen() {
-    return new Promise((resolve) => {
-      const loadingScreen = document.getElementById('loadingScreen');
-      const progressBar = document.querySelector('.progress-bar');
-      let progress = 0;
-
-      const updateProgress = () => {
-        progress += Math.random() * 15;
-        if (progress >= 100) {
-          progress = 100;
-          progressBar.style.width = `${progress}%`;
-          setTimeout(() => resolve(), 500);
-        } else {
-          progressBar.style.width = `${progress}%`;
-          setTimeout(updateProgress, 100);
+    async init() {
+        try {
+            await this.initializeApp();
+            this.setupEventListeners();
+            this.loadGames();
+            this.setupAnimations();
+            this.setupIntersectionObserver();
+            this.setupScrollEffects();
+            this.setupLiveBackground();
+            await this.hideLoader();
+        } catch (error) {
+            console.error('Error initializing GameZone:', error);
+            await this.hideLoader();
         }
-      };
+    }
 
-      updateProgress();
-    });
-  }
-
-  hideLoadingScreen() {
-    const loadingScreen = document.getElementById('loadingScreen');
-    loadingScreen.style.opacity = '0';
-    setTimeout(() => {
-      loadingScreen.style.display = 'none';
-      document.body.classList.add('loaded');
-    }, 500);
-  }
-
-  setupEventListeners() {
-    // Navigation events
-    this.setupNavigationEvents();
-    
-    // Search events
-    this.setupSearchEvents();
-    
-    // Theme events
-    this.setupThemeEvents();
-    
-    // Background events
-    this.setupBackgroundEvents();
-    
-    // Button events
-    this.setupButtonEvents();
-    
-    // Scroll events
-    this.setupScrollEvents();
-    
-    // Game filter events
-    this.setupGameFilterEvents();
-    
-    // Window events
-    window.addEventListener('resize', this.debounce(this.handleResize.bind(this), 250));
-    window.addEventListener('scroll', this.throttle(this.handleScroll.bind(this), 16));
-  }
-
-  setupNavigationEvents() {
-    const navLinks = document.querySelectorAll('.nav-link');
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const section = link.getAttribute('data-section');
-        this.smoothScrollToSection(section);
-        this.setActiveNavLink(link);
-      });
-    });
-
-    menuToggle?.addEventListener('click', () => {
-      menuToggle.classList.toggle('active');
-      navMenu.classList.toggle('active');
-    });
-  }
-
-  setupSearchEvents() {
-    const searchBtn = document.getElementById('searchBtn');
-    const searchOverlay = document.getElementById('searchOverlay');
-    const searchClose = document.getElementById('searchClose');
-    const searchInput = document.getElementById('searchInput');
-
-    searchBtn?.addEventListener('click', () => {
-      searchOverlay.classList.add('active');
-      setTimeout(() => searchInput?.focus(), 300);
-    });
-
-    searchClose?.addEventListener('click', () => {
-      searchOverlay.classList.remove('active');
-    });
-
-    searchOverlay?.addEventListener('click', (e) => {
-      if (e.target === searchOverlay) {
-        searchOverlay.classList.remove('active');
-      }
-    });
-
-    searchInput?.addEventListener('input', this.debounce((e) => {
-      this.performSearch(e.target.value);
-    }, 300));
-
-    // Escape key to close search
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && searchOverlay.classList.contains('active')) {
-        searchOverlay.classList.remove('active');
-      }
-    });
-  }
-
-  setupThemeEvents() {
-    const themeBtn = document.getElementById('themeBtn');
-    const themeDropdown = document.getElementById('themeDropdown');
-    const themeOptions = document.querySelectorAll('.theme-option');
-
-    themeBtn?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      themeDropdown.classList.toggle('show');
-    });
-
-    themeOptions.forEach(option => {
-      option.addEventListener('click', () => {
-        const theme = option.getAttribute('data-theme');
-        this.setTheme(theme);
-        themeDropdown.classList.remove('show');
-      });
-    });
-
-    document.addEventListener('click', () => {
-      themeDropdown.classList.remove('show');
-    });
-  }
-
-  setupBackgroundEvents() {
-    const bgBtn = document.getElementById('bgBtn');
-    const bgDropdown = document.getElementById('bgDropdown');
-    const bgOptions = document.querySelectorAll('.bg-option');
-
-    bgBtn?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      bgDropdown.classList.toggle('show');
-    });
-
-    bgOptions.forEach(option => {
-      option.addEventListener('click', () => {
-        const bg = option.getAttribute('data-bg');
-        this.setBackground(bg);
-        bgDropdown.classList.remove('show');
-      });
-    });
-
-    document.addEventListener('click', () => {
-      bgDropdown.classList.remove('show');
-    });
-  }
-
-  setupButtonEvents() {
-    const exploreBtn = document.getElementById('exploreBtn');
-    const watchTrailerBtn = document.getElementById('watchTrailerBtn');
-    const loadMoreBtn = document.getElementById('loadMoreBtn');
-    const scrollToTopBtn = document.getElementById('scrollToTop');
-
-    exploreBtn?.addEventListener('click', () => {
-      this.smoothScrollToSection('games');
-    });
-
-    watchTrailerBtn?.addEventListener('click', () => {
-      this.showTrailerModal();
-    });
-
-    loadMoreBtn?.addEventListener('click', () => {
-      this.loadMoreGames();
-    });
-
-    scrollToTopBtn?.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-
-  setupScrollEvents() {
-    const scrollToTopBtn = document.getElementById('scrollToTop');
-    
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        scrollToTopBtn?.classList.add('visible');
-      } else {
-        scrollToTopBtn?.classList.remove('visible');
-      }
-    });
-  }
-
-  setupGameFilterEvents() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+    async initializeApp() {
+        // Initialize theme
+        const savedTheme = localStorage.getItem('gamezone-theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
         
-        const filter = btn.getAttribute('data-filter');
-        this.filterGames(filter);
-      });
-    });
-  }
-
-  setupIntersectionObserver() {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
-          
-          // Animate counters
-          if (entry.target.classList.contains('stat-number')) {
-            this.animateCounter(entry.target);
-          }
-        }
-      });
-    }, observerOptions);
-
-    // Observe sections for animations
-    document.querySelectorAll('[data-aos]').forEach(el => {
-      observer.observe(el);
-    });
-
-    // Observe counters
-    document.querySelectorAll('.stat-number').forEach(el => {
-      observer.observe(el);
-    });
-  }
-
-  setupParticleSystem() {
-    const canvas = document.getElementById('particleCanvas');
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    let animationId;
-
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.size = Math.random() * 2 + 1;
-        this.opacity = Math.random() * 0.5 + 0.2;
-        this.hue = Math.random() * 60 + 200; // Blue to purple range
-      }
-
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-
-        // Pulse effect
-        this.opacity += Math.sin(Date.now() * 0.001 + this.x * 0.01) * 0.01;
-        this.opacity = Math.max(0.1, Math.min(0.7, this.opacity));
-      }
-
-      draw() {
-        ctx.save();
-        ctx.globalAlpha = this.opacity;
-        ctx.fillStyle = `hsl(${this.hue}, 70%, 60%)`;
-        ctx.shadowColor = `hsl(${this.hue}, 70%, 60%)`;
-        ctx.shadowBlur = 10;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
-      }
+        // Preload critical images
+        await this.preloadImages();
+        
+        // Initialize search suggestions
+        this.initializeSearch();
     }
 
-    const initParticles = () => {
-      particles = [];
-      const particleCount = Math.min(100, Math.floor(canvas.width * canvas.height / 8000));
-      
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-      }
-    };
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      particles.forEach(particle => {
-        particle.update();
-        particle.draw();
-      });
-
-      // Draw connections
-      particles.forEach((particle, i) => {
-        particles.slice(i + 1).forEach(otherParticle => {
-          const dx = particle.x - otherParticle.x;
-          const dy = particle.y - otherParticle.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 100) {
-            ctx.save();
-            ctx.globalAlpha = (100 - distance) / 100 * 0.1;
-            ctx.strokeStyle = `hsl(${particle.hue}, 70%, 60%)`;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(particle.x, particle.y);
-            ctx.lineTo(otherParticle.x, otherParticle.y);
-            ctx.stroke();
-            ctx.restore();
-          }
+    async preloadImages() {
+        const criticalImages = this.games.slice(0, 6).map(game => game.image);
+        const imagePromises = criticalImages.map(src => {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = resolve;
+                img.onerror = reject;
+                img.src = src;
+            });
         });
-      });
 
-      animationId = requestAnimationFrame(animate);
-    };
-
-    resizeCanvas();
-    initParticles();
-    animate();
-
-    window.addEventListener('resize', () => {
-      resizeCanvas();
-      initParticles();
-    });
-
-    // Pause animation when not visible
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
-        cancelAnimationFrame(animationId);
-      } else {
-        animate();
-      }
-    });
-  }
-
-  setupCursorEffects() {
-    const cursor = document.getElementById('cursor');
-    const cursorFollower = document.getElementById('cursorFollower');
-    
-    if (!cursor || !cursorFollower) return;
-
-    let mouseX = 0, mouseY = 0;
-    let followerX = 0, followerY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      
-      cursor.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`;
-    });
-
-    // Smooth follower animation
-    const animateFollower = () => {
-      followerX += (mouseX - followerX) * 0.1;
-      followerY += (mouseY - followerY) * 0.1;
-      
-      cursorFollower.style.transform = `translate(${followerX - 20}px, ${followerY - 20}px)`;
-      requestAnimationFrame(animateFollower);
-    };
-    animateFollower();
-
-    // Interactive elements
-    const interactiveElements = document.querySelectorAll('button, a, .game-card, .feature-card');
-    
-    interactiveElements.forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursor.style.transform += ' scale(1.5)';
-        cursorFollower.style.transform += ' scale(1.2)';
-        cursorFollower.style.opacity = '0.8';
-      });
-      
-      el.addEventListener('mouseleave', () => {
-        cursor.style.transform = cursor.style.transform.replace(' scale(1.5)', '');
-        cursorFollower.style.transform = cursorFollower.style.transform.replace(' scale(1.2)', '');
-        cursorFollower.style.opacity = '0.5';
-      });
-    });
-  }
-
-  initializeTheme() {
-    const savedTheme = localStorage.getItem('gameZoneTheme') || 'dark';
-    this.setTheme(savedTheme);
-  }
-
-  setTheme(theme) {
-    const themeIcon = document.querySelector('.theme-icon');
-    const themeOptions = document.querySelectorAll('.theme-option');
-    
-    // Remove existing theme classes
-    document.documentElement.removeAttribute('data-theme');
-    
-    // Apply new theme
-    if (theme === 'light') {
-      document.documentElement.setAttribute('data-theme', 'light');
-      themeIcon.textContent = '☀️';
-    } else if (theme === 'auto') {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (!prefersDark) {
-        document.documentElement.setAttribute('data-theme', 'light');
-      }
-      themeIcon.textContent = '🔄';
-    } else {
-      themeIcon.textContent = '🌙';
-    }
-    
-    // Update active option
-    themeOptions.forEach(option => {
-      option.classList.toggle('active', option.getAttribute('data-theme') === theme);
-    });
-    
-    localStorage.setItem('gameZoneTheme', theme);
-  }
-
-  initializeSmoothScrolling() {
-    // Add smooth scroll behavior to all anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = document.querySelector(anchor.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+        try {
+            await Promise.all(imagePromises);
+        } catch (error) {
+            console.warn('Some images failed to preload:', error);
         }
-      });
-    });
-  }
-
-  initializeNavbarScroll() {
-    const navbar = document.getElementById('navbar');
-    let lastScrollY = window.scrollY;
-
-    window.addEventListener('scroll', () => {
-      const currentScrollY = window.scrollY;
-      
-      if (currentScrollY > 100) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-
-      // Hide navbar on scroll down, show on scroll up
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        navbar.style.transform = 'translateY(-100%)';
-      } else {
-        navbar.style.transform = 'translateY(0)';
-      }
-      
-      lastScrollY = currentScrollY;
-    });
-  }
-
-  initializeBackgroundEffects() {
-    const savedBackground = localStorage.getItem('gameZoneBackground') || 'gradient';
-    this.setBackground(savedBackground);
-  }
-
-  setBackground(background) {
-    const backgrounds = ['gradient', 'mesh', 'neural', 'geometric'];
-    const bgOptions = document.querySelectorAll('.bg-option');
-    
-    // Remove all active backgrounds
-    backgrounds.forEach(bg => {
-      const element = document.getElementById(`bg${bg.charAt(0).toUpperCase() + bg.slice(1)}`);
-      element?.classList.remove('active');
-    });
-    
-    // Activate selected background
-    const selectedBg = document.getElementById(`bg${background.charAt(0).toUpperCase() + background.slice(1)}`);
-    selectedBg?.classList.add('active');
-    
-    // Update active option
-    bgOptions.forEach(option => {
-      option.classList.toggle('active', option.getAttribute('data-bg') === background);
-    });
-    
-    localStorage.setItem('gameZoneBackground', background);
-  }
-
-  smoothScrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      const navbarHeight = document.getElementById('navbar').offsetHeight;
-      const targetPosition = section.offsetTop - navbarHeight;
-      
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
-    }
-  }
-
-  setActiveNavLink(activeLink) {
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.classList.remove('active');
-    });
-    activeLink.classList.add('active');
-  }
-
-  animateCounter(element) {
-    const target = parseFloat(element.getAttribute('data-count'));
-    const duration = 2000; // 2 seconds
-    const start = performance.now();
-    const startValue = 0;
-
-    const animate = (currentTime) => {
-      const elapsed = currentTime - start;
-      const progress = Math.min(elapsed / duration, 1);
-      
-      // Easing function (easeOutCubic)
-      const easeProgress = 1 - Math.pow(1 - progress, 3);
-      const current = startValue + (target - startValue) * easeProgress;
-      
-      if (target < 10) {
-        element.textContent = current.toFixed(1);
-      } else {
-        element.textContent = Math.floor(current).toLocaleString();
-      }
-      
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      } else {
-        element.textContent = target < 10 ? target.toFixed(1) : target.toLocaleString();
-      }
-    };
-    
-    requestAnimationFrame(animate);
-  }
-
-  async loadGames() {
-    const gamesData = [
-      {
-        id: 1,
-        title: "9x9 Tic-Tac-Toe",
-        description: "The classic Tic-Tac-Toe expanded to a challenging 9x9 grid with strategic depth.",
-        image: "Images/9x9_Tic-Tac_Game.png",
-        rating: 4.8,
-        category: "strategy",
-        tags: ["Strategy", "Extended"],
-        url: "https://surajsk2003.github.io/9x9-Tic-Tac-game/"
-      },
-      {
-        id: 2,
-        title: "Chess Master",
-        description: "Classic chess game with intuitive controls and strategic gameplay.",
-        image: "Images/Chess.png",
-        rating: 4.9,
-        category: "strategy",
-        tags: ["Strategy", "Classic"],
-        url: "https://surajsk2003.github.io/Chess/"
-      },
-      {
-        id: 3,
-        title: "Minesweeper Pro",
-        description: "Test your logic and memory in this classic puzzle game with multiple difficulty levels.",
-        image: "Images/Minesweeper-Game.png",
-        rating: 4.7,
-        category: "puzzle",
-        tags: ["Puzzle", "Logic"],
-        url: "https://surajsk2003.github.io/Minesweeper/"
-      },
-      {
-        id: 4,
-        title: "Neon Snake Nexus",
-        description: "Classic snake game with stunning neon graphics and smooth gameplay.",
-        image: "Images/NEON_SNAKE_NEXUS.png",
-        rating: 4.9,
-        category: "arcade",
-        tags: ["Arcade", "Classic"],
-        url: "https://surajsk2003.github.io/Neon-Snake-Nexus/"
-      },
-      {
-        id: 5,
-        title: "Rock Paper Scissors",
-        description: "The timeless game of chance and strategy with a modern interface.",
-        image: "Images/Rock-Paper-Scissors.png",
-        rating: 4.5,
-        category: "arcade",
-        tags: ["Arcade", "Classic"],
-        url: "https://surajsk2003.github.io/Rock-Paper-Scissors/"
-      },
-      {
-        id: 6,
-        title: "Typing Speed Challenge",
-        description: "Test and improve your typing speed and accuracy with this fun challenge.",
-        image: "Images/Typing_Speed_Challenge.png",
-        rating: 4.6,
-        category: "puzzle",
-        tags: ["Skill", "Challenge"],
-        url: "https://surajsk2003.github.io/Typing-Speed-Challenge/"
-      },
-      {
-        id: 7,
-        title: "Tricore Adventure",
-        description: "An engaging puzzle strategy game with unique mechanics and challenging levels.",
-        image: "Images/Tricore_Game.png",
-        rating: 4.4,
-        category: "strategy",
-        tags: ["Strategy", "Unique"],
-        url: "https://surajsk2003.github.io/Tricore/"
-      },
-      {
-        id: 8,
-        title: "Soccer Slime",
-        description: "Fun physics-based soccer game with bouncy slime characters and exciting gameplay.",
-        image: "Images/Soccer Slime.png",
-        rating: 4.7,
-        category: "arcade",
-        tags: ["Sports", "Physics"],
-        url: "https://surajsk2003.github.io/Soccer-Slime/"
-      },
-      {
-        id: 9,
-        title: "Interactive Piano",
-        description: "Advanced virtual piano with realistic sound and multiple instruments for music creation.",
-        image: "Images/Interactive Piano.png",
-        rating: 4.9,
-        category: "music",
-        tags: ["Music", "Creative"],
-        url: "https://surajsk2003.github.io/Advanced-Interactive-Piano/"
-      },
-      {
-        id: 10,
-        title: "Ninja Adventure",
-        description: "Action-packed ninja adventure with stealth mechanics and challenging platforming.",
-        image: "Images/Ninja Adventure.png",
-        rating: 4.8,
-        category: "adventure",
-        tags: ["Action", "Platform"],
-        url: "https://surajsk2003.github.io/Ninja-Adventure/"
-      },
-      {
-        id: 11,
-        title: "MindMirror AI",
-        description: "AI-powered reflective journal that helps you understand your thoughts and emotions.",
-        image: "Images/MindMirror.png",
-        rating: 4.6,
-        category: "ai",
-        tags: ["AI", "Wellness"],
-        url: "https://surajsk2003.github.io/MindMirror---Reflective-AI-Journal/"
-      },
-      {
-        id: 12,
-        title: "LLMystery Detective",
-        description: "AI-driven detective game where you solve mysteries using advanced language models.",
-        image: "Images/LLMystery.png",
-        rating: 4.8,
-        category: "ai",
-        tags: ["AI", "Mystery"],
-        url: "https://surajsk2003.github.io/LLMystery-AI-Driven-Detective-Game/"
-      },
-      {
-        id: 13,
-        title: "2048 Elite",
-        description: "Enhanced version of the classic 2048 puzzle game with smooth animations and power-ups.",
-        image: "Images/2048-Elite.png",
-        rating: 4.7,
-        category: "puzzle",
-        tags: ["Puzzle", "Numbers"],
-        url: "https://surajsk2003.github.io/2048-Elite/"
-      },
-      {
-        id: 14,
-        title: "NeuroFlip",
-        description: "Mind-bending memory game that challenges your cognitive abilities with neural patterns.",
-        image: "Images/NeuroFlip.png",
-        rating: 4.6,
-        category: "puzzle",
-        tags: ["Memory", "Neural"],
-        url: "https://surajsk2003.github.io/NeuroFlip/"
-      },
-      {
-        id: 15,
-        title: "Hangman Classic",
-        description: "The timeless word guessing game with modern graphics and extensive vocabulary.",
-        image: "Images/Hangman.png",
-        rating: 4.5,
-        category: "puzzle",
-        tags: ["Word", "Classic"],
-        url: "https://surajsk2003.github.io/HANGMAN/"
-      },
-      {
-        id: 16,
-        title: "Nexus Bird",
-        description: "Flappy Bird inspired game with futuristic graphics and challenging obstacles.",
-        image: "Images/Nexus-Bird.png",
-        rating: 4.4,
-        category: "arcade",
-        tags: ["Arcade", "Flying"],
-        url: "https://surajsk2003.github.io/Nexus-Bird/"
-      },
-      {
-        id: 17,
-        title: "Neon Breakout",
-        description: "Classic brick breaker game with stunning neon visuals and power-up system.",
-        image: "Images/Neon-Breakout.png",
-        rating: 4.8,
-        category: "arcade",
-        tags: ["Arcade", "Neon"],
-        url: "https://surajsk2003.github.io/NEON-BREAKOUT/"
-      },
-      {
-        id: 18,
-        title: "Whack-A-Mole",
-        description: "Fast-paced reaction game where you test your reflexes against sneaky moles.",
-        image: "Images/Whack-A-Mole.png",
-        rating: 4.6,
-        category: "arcade",
-        tags: ["Reaction", "Fun"],
-        url: "https://surajsk2003.github.io/WHACK-A-MOLE/"
-      },
-      {
-        id: 19,
-        title: "ChromaVerse",
-        description: "Immersive color-based puzzle adventure with stunning visual effects.",
-        image: "Images/ChromaVerse.png",
-        rating: 4.9,
-        category: "adventure",
-        tags: ["Color", "Visual"],
-        url: "https://surajsk2003.github.io/ChromaVerse/"
-      },
-      {
-        id: 20,
-        title: "Quantum Nexus",
-        description: "Sci-fi strategy game exploring quantum mechanics with mind-bending puzzles.",
-        image: "Images/Quantum-Nexus.png",
-        rating: 4.8,
-        category: "strategy",
-        tags: ["Sci-Fi", "Quantum"],
-        url: "https://surajsk2003.github.io/Quantum-Nexus/"
-      }
-    ];
-
-    this.allGames = gamesData;
-    this.renderGames(gamesData);
-  }
-
-  renderGames(games) {
-    const gamesGrid = document.getElementById('gamesGrid');
-    if (!gamesGrid) return;
-
-    gamesGrid.innerHTML = games.map(game => `
-      <div class="game-card" data-category="${game.category}" data-aos="fade-up">
-        <div class="game-header">
-          <img src="${game.image}" alt="${game.title}" class="game-logo">
-          <div class="game-rating">
-            <div class="game-stars">${this.generateStars(game.rating)}</div>
-            <div class="game-score">${game.rating}</div>
-          </div>
-        </div>
-        <div class="game-info">
-          <h3 class="game-title">${game.title}</h3>
-          <p class="game-description">${game.description}</p>
-          <div class="game-tags">
-            ${game.tags.map(tag => `<span class="game-tag">${tag}</span>`).join('')}
-          </div>
-        </div>
-        <div class="game-actions">
-          <button class="play-btn" onclick="window.open('${game.url}', '_blank')">
-            <span>Play Now</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="5,3 19,12 5,21"/>
-            </svg>
-          </button>
-          <button class="info-btn" onclick="gameZone.showGameInfo(${game.id})">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M12 16v-4M12 8h.01"/>
-            </svg>
-          </button>
-        </div>
-      </div>
-    `).join('');
-
-    // Trigger AOS animations for new elements
-    this.refreshAOS();
-  }
-
-  generateStars(rating) {
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 >= 0.5;
-    const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
-    
-    return '★'.repeat(fullStars) + 
-           (hasHalfStar ? '☆' : '') + 
-           '☆'.repeat(emptyStars);
-  }
-
-  filterGames(category) {
-    const filteredGames = category === 'all' 
-      ? this.allGames 
-      : this.allGames.filter(game => game.category === category);
-    
-    this.renderGames(filteredGames);
-  }
-
-  performSearch(query) {
-    const searchResults = document.getElementById('searchResults');
-    if (!query.trim()) {
-      searchResults.innerHTML = '';
-      return;
     }
 
-    const results = this.allGames.filter(game => 
-      game.title.toLowerCase().includes(query.toLowerCase()) ||
-      game.description.toLowerCase().includes(query.toLowerCase()) ||
-      game.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
-    );
-
-    searchResults.innerHTML = results.length > 0 
-      ? results.map(game => `
-          <div class="search-result" onclick="window.open('${game.url}', '_blank')">
-            <img src="${game.image}" alt="${game.title}" class="result-image">
-            <div class="result-info">
-              <h3 class="result-title">${game.title}</h3>
-              <p class="result-description">${game.description}</p>
-              <div class="result-rating">${this.generateStars(game.rating)} ${game.rating}</div>
-            </div>
-          </div>
-        `).join('')
-      : '<div class="no-results">No games found matching your search.</div>';
-  }
-
-  showGameInfo(gameId) {
-    const game = this.allGames.find(g => g.id === gameId);
-    if (!game) return;
-
-    const modal = document.getElementById('gameModal');
-    const modalBody = document.getElementById('modalBody');
-    
-    modalBody.innerHTML = `
-      <div class="game-modal-content">
-        <div class="game-modal-header">
-          <img src="${game.image}" alt="${game.title}" class="modal-game-logo">
-          <div class="modal-game-info">
-            <h2 class="modal-game-title">${game.title}</h2>
-            <div class="modal-game-rating">
-              <span class="modal-stars">${this.generateStars(game.rating)}</span>
-              <span class="modal-score">${game.rating}/5</span>
-            </div>
-            <div class="modal-game-tags">
-              ${game.tags.map(tag => `<span class="modal-tag">${tag}</span>`).join('')}
-            </div>
-          </div>
-        </div>
-        <div class="modal-game-description">
-          <p>${game.description}</p>
-        </div>
-        <div class="modal-game-actions">
-          <button class="btn btn-primary btn-large" onclick="window.open('${game.url}', '_blank')">
-            <span>Play Now</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="5,3 19,12 5,21"/>
-            </svg>
-          </button>
-        </div>
-      </div>
-    `;
-    
-    modal.classList.add('active');
-  }
-
-  showTrailerModal() {
-    const modal = document.getElementById('gameModal');
-    const modalBody = document.getElementById('modalBody');
-    
-    modalBody.innerHTML = `
-      <div class="trailer-modal-content">
-        <h2>Game Zone Trailer</h2>
-        <div class="video-placeholder">
-          <div class="video-icon">🎬</div>
-          <p>Experience the future of web gaming with our advanced interactive platform.</p>
-          <ul class="trailer-features">
-            <li>✨ Cutting-edge graphics and animations</li>
-            <li>🎮 Smooth 60fps gameplay</li>
-            <li>🌐 Cross-platform compatibility</li>
-            <li>🤖 AI-powered experiences</li>
-            <li>🏆 Achievement system</li>
-          </ul>
-        </div>
-      </div>
-    `;
-    
-    modal.classList.add('active');
-  }
-
-  loadMoreGames() {
-    // Simulate loading more games
-    const loadMoreBtn = document.getElementById('loadMoreBtn');
-    const originalText = loadMoreBtn.innerHTML;
-    
-    loadMoreBtn.innerHTML = `
-      <span>Loading...</span>
-      <div class="loading-spinner"></div>
-    `;
-    
-    setTimeout(() => {
-      loadMoreBtn.innerHTML = originalText;
-      // In a real app, you would fetch more games here
-      console.log('More games would be loaded here');
-    }, 2000);
-  }
-
-  refreshAOS() {
-    // Re-initialize AOS animations for new elements
-    const newElements = document.querySelectorAll('[data-aos]:not(.aos-init)');
-    newElements.forEach(el => {
-      el.classList.add('aos-init');
-    });
-  }
-
-  handleResize() {
-    // Handle responsive changes
-    const navbar = document.getElementById('navbar');
-    const navMenu = document.getElementById('navMenu');
-    const menuToggle = document.getElementById('menuToggle');
-    
-    if (window.innerWidth > 768) {
-      navMenu.classList.remove('active');
-      menuToggle.classList.remove('active');
+    async hideLoader() {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                if (loader) {
+                    loader.classList.add('hidden');
+                    setTimeout(() => {
+                        loader.remove();
+                        this.isLoading = false;
+                        resolve();
+                    }, 500);
+                } else {
+                    resolve();
+                }
+            }, 1500);
+        });
     }
-  }
 
-  handleScroll() {
-    // Update active navigation based on scroll position
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const scrollPosition = window.scrollY + 100;
+    setupEventListeners() {
+        // Navigation
+        this.setupNavigation();
+        
+        // Mobile menu
+        this.setupMobileMenu();
+        
+        // Theme toggle
+        this.setupThemeToggle();
+        
+        // Search
+        this.setupSearch();
+        
+        // Filters
+        this.setupFilters();
+        
+        // View toggle
+        this.setupViewToggle();
+        
+        // Keyboard shortcuts
+        this.setupKeyboardShortcuts();
+        
+        // Performance optimizations
+        this.setupPerformanceOptimizations();
+    }
 
-    sections.forEach(section => {
-      const top = section.offsetTop;
-      const height = section.offsetHeight;
-      const id = section.getAttribute('id');
-
-      if (scrollPosition >= top && scrollPosition < top + height) {
+    setupNavigation() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        
         navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('data-section') === id) {
-            link.classList.add('active');
-          }
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                const targetId = link.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    // Update active state
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                    
+                    // Smooth scroll with offset
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu
+                    this.closeMobileMenu();
+                }
+            });
         });
-      }
-    });
-  }
+    }
 
-  // Utility functions
-  debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-      const later = () => {
-        clearTimeout(timeout);
-        func(...args);
-      };
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-    };
-  }
+    setupMobileMenu() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        const nav = document.getElementById('nav');
+        
+        if (mobileMenu && nav) {
+            mobileMenu.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileMenu.classList.toggle('active');
+                nav.classList.toggle('mobile-active');
+            });
 
-  throttle(func, limit) {
-    let inThrottle;
-    return function() {
-      const args = arguments;
-      const context = this;
-      if (!inThrottle) {
-        func.apply(context, args);
-        inThrottle = true;
-        setTimeout(() => inThrottle = false, limit);
-      }
-    };
-  }
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.header')) {
+                    this.closeMobileMenu();
+                }
+            });
+
+            // Close menu on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    this.closeMobileMenu();
+                }
+            });
+        }
+    }
+
+    closeMobileMenu() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        const nav = document.getElementById('nav');
+        
+        if (mobileMenu && nav) {
+            mobileMenu.classList.remove('active');
+            nav.classList.remove('mobile-active');
+        }
+    }
+
+    setupThemeToggle() {
+        const themeToggle = document.getElementById('themeToggle');
+        
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('gamezone-theme', newTheme);
+                
+                // Add haptic feedback effect
+                this.addHapticFeedback(themeToggle);
+                
+                // Update live background for theme
+                this.updateLiveBackgroundTheme(newTheme);
+            });
+        }
+    }
+
+    initializeSearch() {
+        this.searchIndex = this.games.map((game, index) => ({
+            ...game,
+            searchText: `${game.title} ${game.description} ${game.tags.join(' ')}`.toLowerCase(),
+            index
+        }));
+    }
+
+    setupSearch() {
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+        
+        if (searchInput && searchResults) {
+            searchInput.addEventListener('input', (e) => {
+                clearTimeout(this.searchTimeout);
+                this.searchTimeout = setTimeout(() => {
+                    this.handleSearch(e.target.value, searchResults);
+                }, 200);
+            });
+
+            searchInput.addEventListener('focus', () => {
+                searchResults.style.display = 'block';
+            });
+
+            searchInput.addEventListener('blur', () => {
+                setTimeout(() => {
+                    searchResults.style.display = 'none';
+                }, 200);
+            });
+        }
+    }
+
+    handleSearch(query, resultsContainer) {
+        const trimmedQuery = query.trim().toLowerCase();
+        
+        if (trimmedQuery.length === 0) {
+            resultsContainer.innerHTML = '';
+            resultsContainer.style.display = 'none';
+            this.filterGames(this.currentFilter);
+            return;
+        }
+
+        // Search through games
+        const results = this.searchIndex.filter(game => 
+            game.searchText.includes(trimmedQuery)
+        ).slice(0, 5);
+
+        // Update search results dropdown
+        if (results.length > 0) {
+            resultsContainer.innerHTML = results.map(game => `
+                <div class="search-result" onclick="window.open('${game.url}', '_blank', 'noopener,noreferrer')">
+                    <img src="${game.image}" alt="${game.title}" class="result-image">
+                    <div class="result-info">
+                        <h4>${game.title}</h4>
+                        <p>${game.description.substring(0, 60)}...</p>
+                    </div>
+                </div>
+            `).join('');
+            resultsContainer.style.display = 'block';
+        } else {
+            resultsContainer.innerHTML = '<div class="no-results">No games found</div>';
+            resultsContainer.style.display = 'block';
+        }
+
+        // Filter visible games
+        this.filterGames(this.currentFilter, trimmedQuery);
+    }
+
+    setupFilters() {
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                filterTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                this.currentFilter = tab.getAttribute('data-filter');
+                const searchQuery = document.getElementById('searchInput')?.value.toLowerCase() || '';
+                this.filterGames(this.currentFilter, searchQuery);
+                
+                // Add visual feedback
+                this.addHapticFeedback(tab);
+            });
+        });
+    }
+
+    setupViewToggle() {
+        const viewBtns = document.querySelectorAll('.view-btn');
+        const gamesGrid = document.getElementById('gamesGrid');
+        
+        viewBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                viewBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                this.currentView = btn.getAttribute('data-view');
+                this.updateGridView(gamesGrid, this.currentView);
+                
+                // Add visual feedback
+                this.addHapticFeedback(btn);
+            });
+        });
+    }
+
+    updateGridView(grid, view) {
+        if (view === 'list') {
+            grid.style.gridTemplateColumns = '1fr';
+            grid.querySelectorAll('.game-card').forEach(card => {
+                card.style.display = 'flex';
+                card.style.alignItems = 'center';
+                card.style.padding = 'var(--space-6)';
+            });
+        } else {
+            grid.style.gridTemplateColumns = 'repeat(auto-fit, minmax(350px, 1fr))';
+            grid.querySelectorAll('.game-card').forEach(card => {
+                card.style.display = 'block';
+                card.style.alignItems = 'initial';
+                card.style.padding = 'var(--space-8)';
+            });
+        }
+    }
+
+    setupKeyboardShortcuts() {
+        document.addEventListener('keydown', (e) => {
+            // Search shortcut (Ctrl/Cmd + K)
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                const searchInput = document.getElementById('searchInput');
+                if (searchInput) {
+                    searchInput.focus();
+                }
+            }
+            
+            // Theme toggle (Ctrl/Cmd + Shift + T)
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'T') {
+                e.preventDefault();
+                document.getElementById('themeToggle')?.click();
+            }
+        });
+    }
+
+    setupPerformanceOptimizations() {
+        // Optimize scroll performance
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) return;
+            scrollTimeout = setTimeout(() => {
+                scrollTimeout = null;
+            }, 16); // ~60fps
+        }, { passive: true });
+
+        // Optimize resize performance
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                this.handleResize();
+            }, 250);
+        });
+
+        // Handle visibility change for performance
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                // Pause expensive operations when tab is hidden
+                this.pauseAnimations();
+            } else {
+                // Resume when tab becomes visible
+                this.resumeAnimations();
+            }
+        });
+    }
+
+    loadGames() {
+        const gamesGrid = document.getElementById('gamesGrid');
+        if (!gamesGrid) return;
+        
+        gamesGrid.innerHTML = '';
+        
+        this.games.forEach((game, index) => {
+            const gameCard = this.createGameCard(game, index);
+            gamesGrid.appendChild(gameCard);
+        });
+        
+        this.setupGameCardAnimations();
+    }
+
+    createGameCard(game, index) {
+        const gameCard = document.createElement('div');
+        gameCard.className = 'game-card';
+        gameCard.setAttribute('data-category', game.category);
+        gameCard.style.setProperty('--delay', `${index * 0.1}s`);
+        
+        gameCard.innerHTML = `
+            <div class="game-header">
+                <img src="${game.image}" 
+                     alt="${game.title}" 
+                     class="game-logo" 
+                     loading="lazy"
+                     onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTYiIGZpbGw9IiM5NGEzYjgiLz4KPHBhdGggZD0iTTIwIDIwaDI0djI0SDIwVjIweiIgZmlsbD0iI2YxZjVmOSIvPgo8L3N2Zz4='">
+                <div class="game-info">
+                    <h3>${game.title}</h3>
+                    <div class="game-rating">${game.rating}</div>
+                </div>
+            </div>
+            <p class="game-description">${game.description}</p>
+            <div class="game-tags">
+                ${game.tags.map(tag => `<span class="game-tag">${tag}</span>`).join('')}
+            </div>
+            <button class="play-btn" onclick="this.parentElement.playGame('${game.url}')">
+                Play Now
+            </button>
+        `;
+        
+        // Add play game method to the card
+        gameCard.playGame = (url) => {
+            // Add loading state
+            const playBtn = gameCard.querySelector('.play-btn');
+            const originalText = playBtn.textContent;
+            playBtn.textContent = 'Loading...';
+            playBtn.disabled = true;
+            
+            // Open game
+            window.open(url, '_blank', 'noopener,noreferrer');
+            
+            // Reset button after delay
+            setTimeout(() => {
+                playBtn.textContent = originalText;
+                playBtn.disabled = false;
+            }, 2000);
+        };
+        
+        return gameCard;
+    }
+
+    filterGames(category, searchQuery = '') {
+        const gameCards = document.querySelectorAll('.game-card');
+        let visibleCount = 0;
+        
+        gameCards.forEach((card, index) => {
+            const gameCategory = card.getAttribute('data-category');
+            const title = card.querySelector('.game-info h3').textContent.toLowerCase();
+            const description = card.querySelector('.game-description').textContent.toLowerCase();
+            const tags = Array.from(card.querySelectorAll('.game-tag')).map(tag => tag.textContent.toLowerCase());
+            
+            const categoryMatch = category === 'all' || gameCategory === category;
+            const searchMatch = searchQuery === '' || 
+                               title.includes(searchQuery) || 
+                               description.includes(searchQuery) || 
+                               tags.some(tag => tag.includes(searchQuery));
+            
+            if (categoryMatch && searchMatch) {
+                this.showCard(card, visibleCount * 0.1);
+                visibleCount++;
+            } else {
+                this.hideCard(card);
+            }
+        });
+        
+        // Update filter counts
+        this.updateFilterCounts();
+    }
+
+    showCard(card, delay = 0) {
+        card.style.display = 'block';
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        
+        setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+            card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+        }, delay * 1000 + 100);
+    }
+
+    hideCard(card) {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(-20px)';
+        
+        setTimeout(() => {
+            card.style.display = 'none';
+        }, 300);
+    }
+
+    updateFilterCounts() {
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const categories = ['all', 'strategy', 'puzzle', 'arcade', 'ai'];
+        
+        categories.forEach(category => {
+            const count = category === 'all' 
+                ? this.games.length 
+                : this.games.filter(game => game.category === category).length;
+            
+            const tab = document.querySelector(`[data-filter="${category}"] .count`);
+            if (tab) {
+                tab.textContent = count;
+            }
+        });
+    }
+
+    setupAnimations() {
+        // Animate counters
+        this.animateCounters();
+        
+        // Setup text animations
+        this.setupTextAnimations();
+        
+        // Setup hover effects
+        this.setupHoverEffects();
+    }
+
+    animateCounters() {
+        const counters = document.querySelectorAll('.metric-number[data-count]');
+        
+        const animateCounter = (counter) => {
+            const target = parseInt(counter.getAttribute('data-count'));
+            const duration = 2000;
+            const start = performance.now();
+            
+            const updateCounter = (currentTime) => {
+                const elapsed = currentTime - start;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Easing function for smooth animation
+                const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+                const current = Math.floor(easeOutCubic * target);
+                
+                counter.textContent = current;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target;
+                }
+            };
+            
+            requestAnimationFrame(updateCounter);
+        };
+
+        // Use Intersection Observer to trigger animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => observer.observe(counter));
+    }
+
+    setupTextAnimations() {
+        const words = document.querySelectorAll('.word[data-text]');
+        
+        words.forEach((word, index) => {
+            word.style.setProperty('--delay', `${index * 0.2}s`);
+            
+            // Add text reveal animation
+            word.style.opacity = '0';
+            word.style.transform = 'translateY(50px)';
+            
+            setTimeout(() => {
+                word.style.opacity = '1';
+                word.style.transform = 'translateY(0)';
+                word.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+            }, index * 200 + 500);
+        });
+    }
+
+    setupHoverEffects() {
+        // Enhanced button hover effects
+        document.querySelectorAll('.cta-btn, .play-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                this.addButtonHoverEffect(btn);
+            });
+        });
+
+        // Card hover effects with 3D transform
+        document.querySelectorAll('.game-card, .feature-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                this.add3DHoverEffect(card, e);
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                this.reset3DHoverEffect(card);
+            });
+        });
+    }
+
+    addButtonHoverEffect(btn) {
+        // Create ripple effect
+        const ripple = document.createElement('div');
+        ripple.style.position = 'absolute';
+        ripple.style.background = 'rgba(255, 255, 255, 0.3)';
+        ripple.style.borderRadius = '50%';
+        ripple.style.width = '0';
+        ripple.style.height = '0';
+        ripple.style.left = '50%';
+        ripple.style.top = '50%';
+        ripple.style.transform = 'translate(-50%, -50%)';
+        ripple.style.transition = 'all 0.6s ease';
+        ripple.style.pointerEvents = 'none';
+        
+        btn.style.position = 'relative';
+        btn.style.overflow = 'hidden';
+        btn.appendChild(ripple);
+        
+        requestAnimationFrame(() => {
+            ripple.style.width = '300px';
+            ripple.style.height = '300px';
+            ripple.style.opacity = '0';
+        });
+        
+        setTimeout(() => ripple.remove(), 600);
+    }
+
+    add3DHoverEffect(card, e) {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+        card.style.transition = 'transform 0.1s ease';
+    }
+
+    reset3DHoverEffect(card) {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+        card.style.transition = 'transform 0.5s ease';
+    }
+
+    setupIntersectionObserver() {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card, .section-header').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(50px)';
+            observer.observe(el);
+        });
+    }
+
+    setupGameCardAnimations() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.game-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(50px)';
+            card.style.transition = `all 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s`;
+            observer.observe(card);
+        });
+    }
+
+    setupScrollEffects() {
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+
+        const updateScroll = () => {
+            const currentScrollY = window.scrollY;
+            const header = document.querySelector('.header');
+            
+            // Header hide/show
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            
+            // Update navigation active state
+            this.updateActiveNavigation(currentScrollY);
+            
+            // Parallax effect for live background
+            this.updateLiveBackgroundParallax(currentScrollY);
+            
+            lastScrollY = currentScrollY;
+            ticking = false;
+        };
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateScroll);
+                ticking = true;
+            }
+        }, { passive: true });
+    }
+
+    updateActiveNavigation(scrollY) {
+        const sections = ['home', 'games', 'about'];
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        let current = 'home';
+        
+        sections.forEach(sectionId => {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                const sectionTop = section.offsetTop - 200;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                
+                if (scrollY >= sectionTop && scrollY < sectionBottom) {
+                    current = sectionId;
+                }
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    setupLiveBackground() {
+        this.createFloatingElements();
+        this.startBackgroundAnimations();
+    }
+
+    createFloatingElements() {
+        const container = document.querySelector('.floating-shapes');
+        if (!container) return;
+
+        // Create additional floating elements
+        for (let i = 0; i < 3; i++) {
+            const element = document.createElement('div');
+            element.className = 'floating-element';
+            element.style.position = 'absolute';
+            element.style.width = `${Math.random() * 100 + 50}px`;
+            element.style.height = element.style.width;
+            element.style.borderRadius = '50%';
+            element.style.background = 'var(--gradient-primary)';
+            element.style.filter = 'blur(30px)';
+            element.style.opacity = '0.1';
+            element.style.left = `${Math.random() * 100}%`;
+            element.style.top = `${Math.random() * 100}%`;
+            element.style.animation = `float ${15 + Math.random() * 10}s ease-in-out infinite`;
+            element.style.animationDelay = `${Math.random() * 5}s`;
+            
+            container.appendChild(element);
+        }
+    }
+
+    startBackgroundAnimations() {
+        // Add dynamic color shifting to background elements
+        setInterval(() => {
+            const elements = document.querySelectorAll('.floating-element');
+            elements.forEach(el => {
+                const hue = Math.random() * 360;
+                el.style.filter = `blur(30px) hue-rotate(${hue}deg)`;
+            });
+        }, 5000);
+    }
+
+    updateLiveBackgroundParallax(scrollY) {
+        const parallaxElements = document.querySelectorAll('.floating-shapes::before, .floating-shapes::after');
+        parallaxElements.forEach((el, index) => {
+            const speed = (index + 1) * 0.5;
+            el.style.transform = `translateY(${scrollY * speed}px)`;
+        });
+    }
+
+    updateLiveBackgroundTheme(theme) {
+        const root = document.documentElement;
+        if (theme === 'dark') {
+            root.style.setProperty('--bg-primary', 'rgba(15, 23, 42, 0.95)');
+            root.style.setProperty('--bg-secondary', 'rgba(30, 41, 59, 0.8)');
+        } else {
+            root.style.setProperty('--bg-primary', 'rgba(255, 255, 255, 0.95)');
+            root.style.setProperty('--bg-secondary', 'rgba(248, 250, 252, 0.8)');
+        }
+    }
+
+    addHapticFeedback(element) {
+        // Visual feedback
+        element.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            element.style.transform = 'scale(1)';
+        }, 150);
+
+        // Haptic feedback for supported devices
+        if ('vibrate' in navigator) {
+            navigator.vibrate(50);
+        }
+    }
+
+    handleResize() {
+        // Recalculate layouts on resize
+        this.updateGridView(document.getElementById('gamesGrid'), this.currentView);
+    }
+
+    pauseAnimations() {
+        document.body.style.animationPlayState = 'paused';
+    }
+
+    resumeAnimations() {
+        document.body.style.animationPlayState = 'running';
+    }
 }
 
-// Initialize the application when DOM is loaded
+// Initialize the application
 document.addEventListener('DOMContentLoaded', () => {
-  window.gameZone = new GameZone();
+    new ModernGameZone();
 });
 
-// Modal close functionality
-document.addEventListener('click', (e) => {
-  const modal = document.getElementById('gameModal');
-  const modalClose = document.getElementById('modalClose');
-  
-  if (e.target === modal || e.target === modalClose) {
-    modal.classList.remove('active');
-  }
+// Add CSS for animated elements
+const dynamicStyles = document.createElement('style');
+dynamicStyles.textContent = `
+    .animate-in {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .search-result {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+        padding: var(--space-3);
+        border-radius: var(--radius-lg);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+    }
+    
+    .search-result:hover {
+        background: var(--glass-bg);
+    }
+    
+    .result-image {
+        width: 40px;
+        height: 40px;
+        border-radius: var(--radius-md);
+        object-fit: cover;
+    }
+    
+    .result-info h4 {
+        font-size: var(--font-size-sm);
+        font-weight: 600;
+        margin-bottom: var(--space-1);
+        color: var(--text-primary);
+    }
+    
+    .result-info p {
+        font-size: var(--font-size-xs);
+        color: var(--text-muted);
+    }
+    
+    .no-results {
+        padding: var(--space-4);
+        text-align: center;
+        color: var(--text-muted);
+        font-size: var(--font-size-sm);
+    }
+    
+    .search-results {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--glass-bg);
+        backdrop-filter: var(--backdrop-blur);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--radius-xl);
+        margin-top: var(--space-2);
+        max-height: 300px;
+        overflow-y: auto;
+        display: none;
+        z-index: 1000;
+        box-shadow: var(--shadow-xl);
+    }
+`;
+
+document.head.appendChild(dynamicStyles);
+
+// Error handling
+window.addEventListener('error', (e) => {
+    console.error('GameZone Error:', e.error);
 });
 
-// Keyboard shortcuts
-document.addEventListener('keydown', (e) => {
-  // Escape to close modal
-  if (e.key === 'Escape') {
-    const modal = document.getElementById('gameModal');
-    modal.classList.remove('active');
-  }
-  
-  // Ctrl/Cmd + K to open search
-  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-    e.preventDefault();
-    const searchOverlay = document.getElementById('searchOverlay');
-    searchOverlay.classList.add('active');
-    setTimeout(() => {
-      document.getElementById('searchInput')?.focus();
-    }, 300);
-  }
+window.addEventListener('unhandledrejection', (e) => {
+    console.error('GameZone Promise Rejection:', e.reason);
 });
-
-// Service Worker for PWA functionality (optional)
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(registration => {
-        console.log('SW registered: ', registration);
-      })
-      .catch(registrationError => {
-        console.log('SW registration failed: ', registrationError);
-      });
-  });
-}
-
-// Performance monitoring
-if ('performance' in window) {
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      const perfData = performance.getEntriesByType('navigation')[0];
-      console.log('Page load time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
-    }, 0);
-  });
-}
