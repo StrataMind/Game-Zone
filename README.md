@@ -156,18 +156,30 @@ Welcome to **GameZone PRO** - a modern gaming platform that brings together 20+ 
 ## 📁 Project Architecture
 
 ```
-GameZone-PRO/
+Game Zone/
 ├── 🏠 index.html              # Main gaming platform
 ├── 🎨 styles.css              # Advanced CSS with animations
 ├── ⚡ script.js               # Interactive functionality
 ├── 📁 Images/                 # Game icons & visual assets
-│   ├── 🎮 game-icons/         # Individual game thumbnails
-│   ├── 🌟 backgrounds/        # Dynamic background assets
-│   └── 🎯 ui-elements/        # Interface components
-├── 📁 games/                  # Individual game directories
-│   ├── ♟️ chess/              # Chess game files
-│   ├── 🐍 snake/              # Snake game implementation
-│   └── 🎯 [other-games]/      # Additional game modules
+│   ├── 2028_elite.png
+│   ├── 9x9_Tic-Tac_Game.png
+│   ├── Breakout.png
+│   ├── Chess.png
+│   ├── ChromaVerse.png
+│   ├── Hangman.png
+│   ├── Interactive Piano.png
+│   ├── LLMystery.png
+│   ├── MindMirror.png
+│   ├── Minesweeper-Game.png
+│   ├── NEON_SNAKE_NEXUS.png
+│   ├── Nexus_bird.png
+│   ├── Ninja Adventure.png
+│   ├── Quantum-Nexas.png
+│   ├── Rock-Paper-Scissors.png
+│   ├── Soccer Slime.png
+│   ├── Tricore_Game.png
+│   ├── Typing_Speed_Challenge.png
+│   └── Whack-A-Mole.png
 └── 📚 README.md               # This documentation
 ```
 
