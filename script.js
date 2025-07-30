@@ -181,6 +181,42 @@ class ModernGameZone {
                 tags: ["Sci-Fi", "Quantum", "Strategy"],
                 category: "strategy",
                 url: "https://surajsk2003.github.io/Quantum-Nexus/"
+            },
+            {
+                title: "Simon Says Memory Game",
+                description: "Test your memory with this classic pattern-matching game featuring colorful sequences and progressive difficulty.",
+                image: "Images/Simon-Says-Memory-Game.png",
+                rating: "⭐⭐⭐⭐",
+                tags: ["Memory", "Pattern", "Classic"],
+                category: "puzzle",
+                url: "https://surajsk2003.github.io/Simon-Says---Memory-Game/"
+            },
+            {
+                title: "Tower Stack Game",
+                description: "Stack blocks as high as possible in this precision-based arcade game with physics and timing challenges.",
+                image: "Images/Tower-Stack-Game.png",
+                rating: "⭐⭐⭐⭐",
+                tags: ["Stacking", "Precision", "Physics"],
+                category: "arcade",
+                url: "https://surajsk2003.github.io/Tower-Stack-Game/"
+            },
+            {
+                title: "Reaction Time Tester",
+                description: "Challenge your reflexes and measure your reaction time with this fast-paced testing game.",
+                image: "Images/Reaction-Time-Tester.png",
+                rating: "⭐⭐⭐⭐",
+                tags: ["Reaction", "Speed", "Testing"],
+                category: "arcade",
+                url: "https://surajsk2003.github.io/Reaction-Time-Tester/"
+            },
+            {
+                title: "Cosmic Pong Neural Arena",
+                description: "Futuristic pong game with AI opponents, neural network visuals, and cosmic space themes.",
+                image: "Images/Cosmic-Pong-Neural-Arena.png",
+                rating: "⭐⭐⭐⭐⭐",
+                tags: ["Pong", "AI", "Cosmic", "Neural"],
+                category: "ai",
+                url: "https://surajsk2003.github.io/Cosmic-Pong---Neural-Arena/"
             }
         ];
 
