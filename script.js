@@ -122,7 +122,7 @@ class ModernGameZone {
             {
                 title: "NeuroFlip",
                 description: "Mind-bending memory game that challenges your cognitive abilities with neural patterns.",
-                image: "Images/Copilot_20250713_170216.png",
+                image: "Images/Neuroflip.png",
                 rating: "⭐⭐⭐⭐",
                 tags: ["Memory", "Neural", "Cognitive"],
                 category: "puzzle",
