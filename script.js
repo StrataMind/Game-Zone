@@ -1332,7 +1332,7 @@ dynamicStyles.textContent = `
     }
     
     .contribute-btn {
-        background: linear-gradient(135deg, #24292e, #1a1e22);
+        background: linear-gradient(135deg, #8b5cf6, #a855f7);
         color: white;
         padding: 12px 20px;
         border-radius: 12px;
@@ -1344,15 +1344,15 @@ dynamicStyles.textContent = `
         gap: 10px;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         flex-shrink: 0;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(139, 92, 246, 0.3);
+        box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
     }
     
     .contribute-btn:hover {
         transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(36, 41, 46, 0.4);
-        background: linear-gradient(135deg, #2d333a, #21262d);
-        border-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+        background: linear-gradient(135deg, #7c3aed, #9333ea);
+        border-color: rgba(139, 92, 246, 0.5);
     }
     
     .contribute-btn svg {
