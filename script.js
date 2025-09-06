@@ -1262,82 +1262,131 @@ dynamicStyles.textContent = `
     }
     
     .contribution-banner {
-        background: linear-gradient(135deg, rgba(0, 245, 255, 0.1), rgba(255, 0, 110, 0.1));
-        border: 1px solid rgba(0, 245, 255, 0.2);
-        border-radius: 16px;
-        padding: 16px 20px;
-        margin: 24px 0;
-        backdrop-filter: blur(10px);
+        background: linear-gradient(135deg, rgba(0, 245, 255, 0.08), rgba(255, 0, 110, 0.08));
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 20px 24px;
+        margin: 32px 0;
+        backdrop-filter: blur(20px);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .contribution-banner::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(0, 245, 255, 0.03), rgba(255, 0, 110, 0.03));
+        border-radius: 20px;
+        z-index: -1;
     }
     
     .banner-content {
         display: flex;
         align-items: center;
-        gap: 16px;
+        gap: 20px;
         flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
     }
     
     .banner-icon {
-        background: var(--accent-primary, #00f5ff);
-        border-radius: 50%;
-        padding: 8px;
+        background: linear-gradient(135deg, #24292e, #1a1e22);
+        border-radius: 12px;
+        padding: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
     
     .banner-icon svg {
-        color: white;
+        color: #ffffff;
     }
     
     .banner-text {
         flex: 1;
-        min-width: 200px;
+        min-width: 220px;
     }
     
     .banner-text strong {
         display: block;
-        color: var(--text-primary, #333);
-        font-size: 16px;
-        margin-bottom: 4px;
+        color: var(--text-primary, #ffffff);
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 6px;
+        background: linear-gradient(135deg, #00f5ff, #ff006e);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
     
     .banner-text span {
-        color: var(--text-muted, #666);
-        font-size: 14px;
+        color: var(--text-muted, rgba(255, 255, 255, 0.8));
+        font-size: 15px;
+        line-height: 1.4;
     }
     
     .contribute-btn {
-        background: var(--accent-primary, #00f5ff);
+        background: linear-gradient(135deg, #24292e, #1a1e22);
         color: white;
-        padding: 10px 16px;
+        padding: 12px 20px;
         border-radius: 12px;
         text-decoration: none;
         font-weight: 600;
-        font-size: 14px;
+        font-size: 15px;
         display: flex;
         align-items: center;
-        gap: 8px;
-        transition: all 0.3s ease;
+        gap: 10px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         flex-shrink: 0;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
     
     .contribute-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(0, 245, 255, 0.3);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(36, 41, 46, 0.4);
+        background: linear-gradient(135deg, #2d333a, #21262d);
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .contribute-btn svg {
+        transition: transform 0.3s ease;
+    }
+    
+    .contribute-btn:hover svg {
+        transform: scale(1.1);
     }
     
     @media (max-width: 768px) {
+        .contribution-banner {
+            padding: 16px 20px;
+            margin: 24px 0;
+        }
+        
         .banner-content {
             flex-direction: column;
             text-align: center;
-            gap: 12px;
+            gap: 16px;
+        }
+        
+        .banner-text strong {
+            font-size: 16px;
+        }
+        
+        .banner-text span {
+            font-size: 14px;
         }
         
         .contribute-btn {
             align-self: stretch;
             justify-content: center;
+            padding: 14px 20px;
         }
     }
 `;
