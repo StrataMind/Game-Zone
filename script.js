@@ -409,9 +409,13 @@ class ModernGameZone {
     initializeSearch() {
         this.searchIndex = this.games.map((game, index) => ({
             ...game,
-            searchText: `${game.title} ${game.description} ${game.tags.join(' ')}`.toLowerCase(),
+            searchText: `${game.title} ${game.description} ${game.tags.join(' ')} ${game.category}`.toLowerCase(),
             index
         }));
+        
+        // Popular search terms
+        this.popularSearches = ['puzzle', 'strategy', 'arcade', 'ai', 'chess', 'snake', 'typing', 'memory'];
+        this.recentSearches = JSON.parse(localStorage.getItem('gamezone-recent-searches') || '[]');
     }
 
     setupSearch() {
@@ -419,21 +423,46 @@ class ModernGameZone {
         const searchResults = document.getElementById('searchResults');
         
         if (searchInput && searchResults) {
+            // Search input handling
             searchInput.addEventListener('input', (e) => {
                 clearTimeout(this.searchTimeout);
                 this.searchTimeout = setTimeout(() => {
                     this.handleSearch(e.target.value, searchResults);
-                }, 200);
+                }, 150);
             });
 
+            // Focus handling with suggestions
             searchInput.addEventListener('focus', () => {
-                searchResults.style.display = 'block';
+                if (searchInput.value.trim()) {
+                    searchResults.style.display = 'block';
+                } else {
+                    this.showSearchSuggestions(searchResults);
+                }
             });
 
+            // Blur handling
             searchInput.addEventListener('blur', () => {
                 setTimeout(() => {
                     searchResults.style.display = 'none';
                 }, 200);
+            });
+
+            // Keyboard navigation
+            searchInput.addEventListener('keydown', (e) => {
+                this.handleSearchKeyboard(e, searchResults);
+            });
+
+            // Clear search button
+            const clearBtn = document.createElement('button');
+            clearBtn.className = 'search-clear';
+            clearBtn.innerHTML = '×';
+            clearBtn.style.display = 'none';
+            clearBtn.onclick = () => this.clearSearch(searchInput, searchResults);
+            searchInput.parentElement.appendChild(clearBtn);
+
+            // Show/hide clear button
+            searchInput.addEventListener('input', () => {
+                clearBtn.style.display = searchInput.value ? 'block' : 'none';
             });
         }
     }
@@ -448,30 +477,78 @@ class ModernGameZone {
             return;
         }
 
-        // Search through games
-        const results = this.searchIndex.filter(game => 
-            game.searchText.includes(trimmedQuery)
-        ).slice(0, 5);
+        // Enhanced search with scoring
+        const results = this.searchIndex.map(game => {
+            let score = 0;
+            const title = game.title.toLowerCase();
+            const description = game.description.toLowerCase();
+            const tags = game.tags.map(tag => tag.toLowerCase());
+            
+            // Title exact match (highest priority)
+            if (title === trimmedQuery) score += 100;
+            else if (title.startsWith(trimmedQuery)) score += 50;
+            else if (title.includes(trimmedQuery)) score += 25;
+            
+            // Tag matches
+            tags.forEach(tag => {
+                if (tag === trimmedQuery) score += 30;
+                else if (tag.includes(trimmedQuery)) score += 15;
+            });
+            
+            // Description matches
+            if (description.includes(trimmedQuery)) score += 10;
+            
+            // Category matches
+            if (game.category.includes(trimmedQuery)) score += 20;
+            
+            return { ...game, score };
+        })
+        .filter(game => game.score > 0)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 6);
 
-        // Update search results dropdown
+        // Update search results dropdown with highlighting
         if (results.length > 0) {
-            resultsContainer.innerHTML = results.map(game => `
-                <div class="search-result" onclick="window.open('${game.url}', '_blank', 'noopener,noreferrer')">
-                    <img src="${game.image}" alt="${game.title}" class="result-image">
-                    <div class="result-info">
-                        <h4>${game.title}</h4>
-                        <p>${game.description.substring(0, 60)}...</p>
+            resultsContainer.innerHTML = results.map(game => {
+                const highlightedTitle = this.highlightText(game.title, trimmedQuery);
+                const highlightedDesc = this.highlightText(game.description.substring(0, 80), trimmedQuery);
+                
+                return `
+                    <div class="search-result" onclick="window.open('${game.url}', '_blank', 'noopener,noreferrer')">
+                        <img src="${game.image}" alt="${game.title}" class="result-image">
+                        <div class="result-info">
+                            <h4>${highlightedTitle}</h4>
+                            <p>${highlightedDesc}...</p>
+                            <div class="result-tags">
+                                ${game.tags.slice(0, 2).map(tag => `<span class="result-tag">${tag}</span>`).join('')}
+                            </div>
+                        </div>
+                        <div class="result-category">${game.category}</div>
                     </div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
             resultsContainer.style.display = 'block';
         } else {
-            resultsContainer.innerHTML = '<div class="no-results">No games found</div>';
+            resultsContainer.innerHTML = `
+                <div class="no-results">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <p>No games found for "${trimmedQuery}"</p>
+                    <small>Try searching for categories like "puzzle", "arcade", or "strategy"</small>
+                </div>
+            `;
             resultsContainer.style.display = 'block';
         }
 
         // Filter visible games
         this.filterGames(this.currentFilter, trimmedQuery);
+        
+        // Save search query if it has results
+        if (results.length > 0) {
+            this.saveRecentSearch(trimmedQuery);
+        }
     }
 
     setupFilters() {
@@ -1013,6 +1090,90 @@ class ModernGameZone {
         if ('vibrate' in navigator) {
             navigator.vibrate(50);
         }
+    }
+
+    // Enhanced search helper methods
+    highlightText(text, query) {
+        if (!query) return text;
+        const regex = new RegExp(`(${query})`, 'gi');
+        return text.replace(regex, '<mark>$1</mark>');
+    }
+
+    showSearchSuggestions(resultsContainer) {
+        const suggestions = [
+            ...this.recentSearches.slice(0, 3),
+            ...this.popularSearches.filter(term => !this.recentSearches.includes(term)).slice(0, 5)
+        ];
+
+        if (suggestions.length > 0) {
+            resultsContainer.innerHTML = `
+                <div class="search-suggestions">
+                    <div class="suggestions-header">Popular searches</div>
+                    ${suggestions.map(term => `
+                        <div class="suggestion-item" onclick="this.parentElement.parentElement.parentElement.querySelector('.search-input').value='${term}'; this.parentElement.parentElement.parentElement.querySelector('.search-input').dispatchEvent(new Event('input'));">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="m21 21-4.35-4.35"/>
+                            </svg>
+                            <span>${term}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            resultsContainer.style.display = 'block';
+        }
+    }
+
+    handleSearchKeyboard(e, resultsContainer) {
+        const results = resultsContainer.querySelectorAll('.search-result, .suggestion-item');
+        let currentIndex = Array.from(results).findIndex(item => item.classList.contains('selected'));
+
+        switch(e.key) {
+            case 'ArrowDown':
+                e.preventDefault();
+                currentIndex = Math.min(currentIndex + 1, results.length - 1);
+                this.updateSearchSelection(results, currentIndex);
+                break;
+            case 'ArrowUp':
+                e.preventDefault();
+                currentIndex = Math.max(currentIndex - 1, -1);
+                this.updateSearchSelection(results, currentIndex);
+                break;
+            case 'Enter':
+                e.preventDefault();
+                if (currentIndex >= 0 && results[currentIndex]) {
+                    results[currentIndex].click();
+                }
+                break;
+            case 'Escape':
+                resultsContainer.style.display = 'none';
+                e.target.blur();
+                break;
+        }
+    }
+
+    updateSearchSelection(results, selectedIndex) {
+        results.forEach((item, index) => {
+            item.classList.toggle('selected', index === selectedIndex);
+        });
+    }
+
+    clearSearch(searchInput, searchResults) {
+        searchInput.value = '';
+        searchResults.style.display = 'none';
+        searchInput.parentElement.querySelector('.search-clear').style.display = 'none';
+        this.filterGames(this.currentFilter);
+        searchInput.focus();
+    }
+
+    saveRecentSearch(query) {
+        if (!query || query.length < 2) return;
+        
+        this.recentSearches = this.recentSearches.filter(term => term !== query);
+        this.recentSearches.unshift(query);
+        this.recentSearches = this.recentSearches.slice(0, 5);
+        
+        localStorage.setItem('gamezone-recent-searches', JSON.stringify(this.recentSearches));
     }
 
     handleResize() {
