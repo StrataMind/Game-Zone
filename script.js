@@ -257,20 +257,21 @@ class ModernGameZone {
     }
 
     async preloadImages() {
-        const criticalImages = this.games.slice(0, 6).map(game => game.image);
+        const criticalImages = this.games.slice(0, 3).map(game => game.image);
         const imagePromises = criticalImages.map(src => {
-            return new Promise((resolve, reject) => {
+            return new Promise((resolve) => {
                 const img = new Image();
                 img.onload = resolve;
-                img.onerror = reject;
+                img.onerror = resolve; // Don't block on errors
                 img.src = src;
+                setTimeout(resolve, 100); // Timeout after 100ms
             });
         });
 
         try {
-            await Promise.all(imagePromises);
+            await Promise.race([Promise.all(imagePromises), new Promise(resolve => setTimeout(resolve, 200))]);
         } catch (error) {
-            console.warn('Some images failed to preload:', error);
+            console.warn('Image preload timeout:', error);
         }
     }
 
@@ -284,11 +285,11 @@ class ModernGameZone {
                         loader.remove();
                         this.isLoading = false;
                         resolve();
-                    }, 500);
+                    }, 300);
                 } else {
                     resolve();
                 }
-            }, 1500);
+            }, 800);
         });
     }
 
@@ -849,8 +850,8 @@ class ModernGameZone {
             setTimeout(() => {
                 word.style.opacity = '1';
                 word.style.transform = 'translateY(0)';
-                word.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-            }, index * 200 + 500);
+                word.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            }, index * 100 + 200);
         });
     }
 
