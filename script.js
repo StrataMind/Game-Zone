@@ -1195,7 +1195,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new ModernGameZone();
 });
 
-// Add CSS for animated elements
+// Add CSS for animated elements and contribution banner
 const dynamicStyles = document.createElement('style');
 dynamicStyles.textContent = `
     .animate-in {
@@ -1259,6 +1259,86 @@ dynamicStyles.textContent = `
         display: none;
         z-index: 1000;
         box-shadow: var(--shadow-xl);
+    }
+    
+    .contribution-banner {
+        background: linear-gradient(135deg, rgba(0, 245, 255, 0.1), rgba(255, 0, 110, 0.1));
+        border: 1px solid rgba(0, 245, 255, 0.2);
+        border-radius: 16px;
+        padding: 16px 20px;
+        margin: 24px 0;
+        backdrop-filter: blur(10px);
+    }
+    
+    .banner-content {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+    
+    .banner-icon {
+        background: var(--accent-primary, #00f5ff);
+        border-radius: 50%;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    
+    .banner-icon svg {
+        color: white;
+    }
+    
+    .banner-text {
+        flex: 1;
+        min-width: 200px;
+    }
+    
+    .banner-text strong {
+        display: block;
+        color: var(--text-primary, #333);
+        font-size: 16px;
+        margin-bottom: 4px;
+    }
+    
+    .banner-text span {
+        color: var(--text-muted, #666);
+        font-size: 14px;
+    }
+    
+    .contribute-btn {
+        background: var(--accent-primary, #00f5ff);
+        color: white;
+        padding: 10px 16px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+    }
+    
+    .contribute-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 245, 255, 0.3);
+    }
+    
+    @media (max-width: 768px) {
+        .banner-content {
+            flex-direction: column;
+            text-align: center;
+            gap: 12px;
+        }
+        
+        .contribute-btn {
+            align-self: stretch;
+            justify-content: center;
+        }
     }
 `;
 
