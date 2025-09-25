@@ -6,7 +6,7 @@
   </p>
   
   <p>
-    <a href="https://surajsk2003.github.io/Game-Zone/">🎯 Play Now</a> •
+    <a href="https://stratamind.github.io/Game-Zone/">🎯 Play Now</a> •
     <a href="#games">🎮 Games</a> •
     <a href="#features">✨ Features</a> •
     <a href="#tech-stack">🛠️ Tech</a>
@@ -108,9 +108,7 @@ Welcome to **GameZone PRO** - a modern gaming platform that brings together 20+ 
 
 - **🎹 Interactive Piano** - Virtual piano with realistic sounds
 - **🥷 Ninja Adventure** - Action platformer with combat
-- **🔍 LLMystery** - AI-driven detective adventure
 - **🪐 Quantum Nexus** - Sci-fi strategy with quantum mechanics
-- **🧘 MindMirror** - AI-powered reflective journal
 
 </details>
 
@@ -168,8 +166,6 @@ Game Zone/
 │   ├── ChromaVerse.png
 │   ├── Hangman.png
 │   ├── Interactive Piano.png
-│   ├── LLMystery.png
-│   ├── MindMirror.png
 │   ├── Minesweeper-Game.png
 │   ├── NEON_SNAKE_NEXUS.png
 │   ├── Nexus_bird.png
@@ -186,7 +182,7 @@ Game Zone/
 ## 🚀 Quick Start
 
 ### 🎮 **Play Instantly**
-Visit: **[GameZone PRO Live](https://surajsk2003.github.io/Game-Zone/)**
+Visit: **[GameZone PRO Live](https://stratamind.github.io/Game-Zone/)**
 
 ### 💻 **Local Development**
 
@@ -251,7 +247,6 @@ const backgroundEffects = {
 
 | Game | Category | Difficulty | Unique Features |
 |------|----------|------------|----------------|
-| **🤖 LLMystery** | AI Adventure | Advanced | AI-driven narrative, dynamic storylines |
 | **⚛️ Quantum Nexus** | Strategy | Expert | Quantum mechanics gameplay |
 | **🧠 NeuroFlip** | Puzzle | Intermediate | Neural pattern recognition |
 | **🐍 Neon Snake Nexus** | Arcade | Easy | Cyberpunk aesthetics, power-ups |
@@ -378,7 +373,7 @@ This project is open source under the **[MIT License](LICENSE)**. Feel free to u
 
 *AI/ML Enthusiast • Game Developer • Full-Stack Engineer*
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://surajsk2003.github.io/Suraj.in/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://stratamind.github.io/Suraj.in/)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/surajsk2003)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/suraj-singh-96b45220a)
 [![Blog](https://img.shields.io/badge/Blog-FF5722?style=for-the-badge&logo=blogger&logoColor=white)](https://my-blog-lemon-mu-45.vercel.app/)

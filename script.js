@@ -9,7 +9,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐⭐",
                 tags: ["Strategy", "Logic", "AI"],
                 category: "strategy",
-                url: "https://surajsk2003.github.io/9x9-Tic-Tac-game/"
+                url: "https://stratamind.github.io/9x9-Tic-Tac-game/"
             },
             {
                 title: "Chess Master",
@@ -18,7 +18,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐⭐",
                 tags: ["Strategy", "Classic", "Multiplayer"],
                 category: "strategy",
-                url: "https://surajsk2003.github.io/Chess/"
+                url: "https://stratamind.github.io/Chess/"
             },
             {
                 title: "Minesweeper Pro",
@@ -27,7 +27,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐⭐",
                 tags: ["Puzzle", "Logic", "Classic"],
                 category: "puzzle",
-                url: "https://surajsk2003.github.io/Minesweeper/"
+                url: "https://stratamind.github.io/Minesweeper/"
             },
             {
                 title: "Neon Snake Nexus",
@@ -36,7 +36,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐⭐",
                 tags: ["Arcade", "Neon", "Classic"],
                 category: "arcade",
-                url: "https://surajsk2003.github.io/Neon-Snake-Nexus/"
+                url: "https://stratamind.github.io/Neon-Snake-Nexus/"
             },
             {
                 title: "Rock Paper Scissors",
@@ -45,7 +45,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐",
                 tags: ["Arcade", "Classic", "Quick"],
                 category: "arcade",
-                url: "https://surajsk2003.github.io/Rock-Paper-Scissors/"
+                url: "https://stratamind.github.io/Rock-Paper-Scissors/"
             },
             {
                 title: "Typing Speed Challenge",
@@ -54,7 +54,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐",
                 tags: ["Skill", "Challenge", "Educational"],
                 category: "puzzle",
-                url: "https://surajsk2003.github.io/Typing-Speed-Challenge/"
+                url: "https://stratamind.github.io/Typing-Speed-Challenge/"
             },
             {
                 title: "Tricore Adventure",
@@ -63,7 +63,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐",
                 tags: ["Strategy", "Unique", "Adventure"],
                 category: "strategy",
-                url: "https://surajsk2003.github.io/Tricore/"
+                url: "https://stratamind.github.io/Tricore/"
             },
             {
                 title: "Soccer Slime",
@@ -72,7 +72,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐",
                 tags: ["Sports", "Physics", "Fun"],
                 category: "arcade",
-                url: "https://surajsk2003.github.io/Soccer-Slime/"
+                url: "https://stratamind.github.io/Soccer-Slime/"
             },
             {
                 title: "Interactive Piano",
@@ -81,7 +81,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐⭐",
                 tags: ["Music", "Creative", "Interactive"],
                 category: "other",
-                url: "https://surajsk2003.github.io/Advanced-Interactive-Piano/"
+                url: "https://stratamind.github.io/Advanced-Interactive-Piano/"
             },
             {
                 title: "Ninja Adventure",
@@ -90,25 +90,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐",
                 tags: ["Action", "Platform", "Adventure"],
                 category: "arcade",
-                url: "https://surajsk2003.github.io/Ninja-Adventure/"
-            },
-            {
-                title: "MindMirror AI",
-                description: "AI-powered reflective journal that helps you understand your thoughts and emotions.",
-                image: "Images/MindMirror.png",
-                rating: "⭐⭐⭐⭐",
-                tags: ["AI", "Wellness", "Personal"],
-                category: "ai",
-                url: "https://surajsk2003.github.io/MindMirror---Reflective-AI-Journal/"
-            },
-            {
-                title: "LLMystery Detective",
-                description: "AI-driven detective game where you solve mysteries using advanced language models.",
-                image: "Images/LLMystery.png",
-                rating: "⭐⭐⭐⭐⭐",
-                tags: ["AI", "Mystery", "Detective"],
-                category: "ai",
-                url: "https://surajsk2003.github.io/LLMystery-AI-Driven-Detective-Game/"
+                url: "https://stratamind.github.io/Ninja-Adventure/"
             },
             {
                 title: "2048 Elite",
@@ -117,7 +99,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐",
                 tags: ["Puzzle", "Numbers", "Strategy"],
                 category: "puzzle",
-                url: "https://surajsk2003.github.io/2048-Elite/"
+                url: "https://stratamind.github.io/2048-Elite/"
             },
             {
                 title: "NeuroFlip",
@@ -126,7 +108,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐",
                 tags: ["Memory", "Neural", "Cognitive"],
                 category: "puzzle",
-                url: "https://surajsk2003.github.io/NeuroFlip/"
+                url: "https://stratamind.github.io/NeuroFlip/"
             },
             {
                 title: "Hangman Classic",
@@ -135,7 +117,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐",
                 tags: ["Word", "Classic", "Educational"],
                 category: "puzzle",
-                url: "https://surajsk2003.github.io/HANGMAN/"
+                url: "https://stratamind.github.io/HANGMAN/"
             },
             {
                 title: "Nexus Bird",
@@ -144,7 +126,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐",
                 tags: ["Arcade", "Flying", "Endless"],
                 category: "arcade",
-                url: "https://surajsk2003.github.io/Nexus-Bird/"
+                url: "https://stratamind.github.io/Nexus-Bird/"
             },
             {
                 title: "Neon Breakout",
@@ -153,7 +135,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐⭐",
                 tags: ["Arcade", "Neon", "Classic"],
                 category: "arcade",
-                url: "https://surajsk2003.github.io/NEON-BREAKOUT/"
+                url: "https://stratamind.github.io/NEON-BREAKOUT/"
             },
             {
                 title: "Whack-A-Mole",
@@ -162,7 +144,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐",
                 tags: ["Reaction", "Fun", "Quick"],
                 category: "arcade",
-                url: "https://surajsk2003.github.io/WHACK-A-MOLE/"
+                url: "https://stratamind.github.io/WHACK-A-MOLE/"
             },
             {
                 title: "ChromaVerse",
@@ -171,7 +153,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐⭐",
                 tags: ["Color", "Visual", "Puzzle"],
                 category: "puzzle",
-                url: "https://surajsk2003.github.io/ChromaVerse/"
+                url: "https://stratamind.github.io/ChromaVerse/"
             },
             {
                 title: "Quantum Nexus",
@@ -180,7 +162,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐⭐",
                 tags: ["Sci-Fi", "Quantum", "Strategy"],
                 category: "strategy",
-                url: "https://surajsk2003.github.io/Quantum-Nexus/"
+                url: "https://stratamind.github.io/Quantum-Nexus/"
             },
             {
                 title: "Simon Says Memory Game",
@@ -189,7 +171,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐",
                 tags: ["Memory", "Pattern", "Classic"],
                 category: "puzzle",
-                url: "https://surajsk2003.github.io/Simon-Says---Memory-Game/"
+                url: "https://stratamind.github.io/Simon-Says---Memory-Game/"
             },
             {
                 title: "Tower Stack Game",
@@ -198,7 +180,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐",
                 tags: ["Stacking", "Precision", "Physics"],
                 category: "arcade",
-                url: "https://surajsk2003.github.io/Tower-Stack-Game/"
+                url: "https://stratamind.github.io/Tower-Stack-Game/"
             },
             {
                 title: "Reaction Time Tester",
@@ -207,7 +189,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐",
                 tags: ["Reaction", "Speed", "Testing"],
                 category: "arcade",
-                url: "https://surajsk2003.github.io/Reaction-Time-Tester/"
+                url: "https://stratamind.github.io/Reaction-Time-Tester/"
             },
             {
                 title: "Cosmic Pong Neural Arena",
@@ -216,7 +198,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐⭐",
                 tags: ["Pong", "AI", "Cosmic", "Neural"],
                 category: "ai",
-                url: "https://surajsk2003.github.io/Cosmic-Pong---Neural-Arena/"
+                url: "https://stratamind.github.io/Cosmic-Pong---Neural-Arena/"
             }
         ];
 
