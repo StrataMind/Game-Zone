@@ -924,14 +924,6 @@ class ModernGameZone {
     }
 
 
-    }
-
-
-
-    }
-
-    }
-
     // Enhanced search helper methods
     highlightText(text, query) {
         if (!query) return text;
