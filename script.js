@@ -218,7 +218,6 @@ class ModernGameZone {
             this.setupAnimations();
             this.setupIntersectionObserver();
             this.setupScrollEffects();
-            this.setupLiveBackground();
             await this.hideLoader();
         } catch (error) {
             console.error('Error initializing GameZone:', error);
@@ -381,10 +380,7 @@ class ModernGameZone {
                 localStorage.setItem('gamezone-theme', newTheme);
                 
                 // Add haptic feedback effect
-                this.addHapticFeedback(themeToggle);
                 
-                // Update live background for theme
-                this.updateLiveBackgroundTheme(newTheme);
             });
         }
     }
@@ -549,7 +545,6 @@ class ModernGameZone {
                 this.filterGames(this.currentFilter, searchQuery);
                 
                 // Add visual feedback
-                this.addHapticFeedback(tab);
             });
         });
     }
@@ -567,7 +562,6 @@ class ModernGameZone {
                 this.updateGridView(gamesGrid, this.currentView);
                 
                 // Add visual feedback
-                this.addHapticFeedback(btn);
             });
         });
     }
@@ -630,13 +624,7 @@ class ModernGameZone {
 
         // Handle visibility change for performance
         document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                // Pause expensive operations when tab is hidden
-                this.pauseAnimations();
-            } else {
-                // Resume when tab becomes visible
-                this.resumeAnimations();
-            }
+            // nothing to pause/resume
         });
     }
 
@@ -773,9 +761,6 @@ class ModernGameZone {
         
         // Setup text animations
         this.setupTextAnimations();
-        
-        // Setup hover effects
-        this.setupHoverEffects();
     }
 
     animateCounters() {
@@ -837,60 +822,9 @@ class ModernGameZone {
         });
     }
 
-    setupHoverEffects() {
-        // Enhanced button hover effects
-        document.querySelectorAll('.cta-btn, .play-btn').forEach(btn => {
-            btn.addEventListener('mouseenter', () => {
-                this.addButtonHoverEffect(btn);
-            });
-        });
 
-        // Card hover effects with 3D transform
-        document.querySelectorAll('.game-card, .feature-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                this.add3DHoverEffect(card, e);
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                this.reset3DHoverEffect(card);
-            });
-        });
-    }
 
-    addButtonHoverEffect(btn) {
-        // Create ripple effect
-        const ripple = document.createElement('div');
-        ripple.style.position = 'absolute';
-        ripple.style.background = 'rgba(255, 255, 255, 0.3)';
-        ripple.style.borderRadius = '50%';
-        ripple.style.width = '0';
-        ripple.style.height = '0';
-        ripple.style.left = '50%';
-        ripple.style.top = '50%';
-        ripple.style.transform = 'translate(-50%, -50%)';
-        ripple.style.transition = 'all 0.6s ease';
-        ripple.style.pointerEvents = 'none';
-        
-        btn.style.position = 'relative';
-        btn.style.overflow = 'hidden';
-        btn.appendChild(ripple);
-        
-        requestAnimationFrame(() => {
-            ripple.style.width = '300px';
-            ripple.style.height = '300px';
-            ripple.style.opacity = '0';
-        });
-        
-        setTimeout(() => ripple.remove(), 600);
-    }
 
-    add3DHoverEffect(card, e) {
-        // Disabled — flat editorial style (Publixly)
-    }
-
-    reset3DHoverEffect(card) {
-        // Disabled — flat editorial style (Publixly)
-    }
 
     setupIntersectionObserver() {
         const observerOptions = {
@@ -950,8 +884,6 @@ class ModernGameZone {
             // Update navigation active state
             this.updateActiveNavigation(currentScrollY);
             
-            // Parallax effect for live background
-            this.updateLiveBackgroundParallax(currentScrollY);
             
             lastScrollY = currentScrollY;
             ticking = false;
@@ -991,76 +923,13 @@ class ModernGameZone {
         });
     }
 
-    setupLiveBackground() {
-        this.createFloatingElements();
-        this.startBackgroundAnimations();
+
     }
 
-    createFloatingElements() {
-        const container = document.querySelector('.floating-shapes');
-        if (!container) return;
 
-        // Create additional floating elements
-        for (let i = 0; i < 3; i++) {
-            const element = document.createElement('div');
-            element.className = 'floating-element';
-            element.style.position = 'absolute';
-            element.style.width = `${Math.random() * 100 + 50}px`;
-            element.style.height = element.style.width;
-            element.style.borderRadius = '50%';
-            element.style.background = 'var(--gradient-primary)';
-            element.style.filter = 'blur(30px)';
-            element.style.opacity = '0.1';
-            element.style.left = `${Math.random() * 100}%`;
-            element.style.top = `${Math.random() * 100}%`;
-            element.style.animation = `float ${15 + Math.random() * 10}s ease-in-out infinite`;
-            element.style.animationDelay = `${Math.random() * 5}s`;
-            
-            container.appendChild(element);
-        }
+
     }
 
-    startBackgroundAnimations() {
-        // Add dynamic color shifting to background elements
-        setInterval(() => {
-            const elements = document.querySelectorAll('.floating-element');
-            elements.forEach(el => {
-                const hue = Math.random() * 360;
-                el.style.filter = `blur(30px) hue-rotate(${hue}deg)`;
-            });
-        }, 5000);
-    }
-
-    updateLiveBackgroundParallax(scrollY) {
-        const parallaxElements = document.querySelectorAll('.floating-shapes::before, .floating-shapes::after');
-        parallaxElements.forEach((el, index) => {
-            const speed = (index + 1) * 0.5;
-            el.style.transform = `translateY(${scrollY * speed}px)`;
-        });
-    }
-
-    updateLiveBackgroundTheme(theme) {
-        const root = document.documentElement;
-        if (theme === 'dark') {
-            root.style.setProperty('--bg-primary', 'rgba(15, 23, 42, 0.95)');
-            root.style.setProperty('--bg-secondary', 'rgba(30, 41, 59, 0.8)');
-        } else {
-            root.style.setProperty('--bg-primary', 'rgba(255, 255, 255, 0.95)');
-            root.style.setProperty('--bg-secondary', 'rgba(248, 250, 252, 0.8)');
-        }
-    }
-
-    addHapticFeedback(element) {
-        // Visual feedback
-        element.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            element.style.transform = 'scale(1)';
-        }, 150);
-
-        // Haptic feedback for supported devices
-        if ('vibrate' in navigator) {
-            navigator.vibrate(50);
-        }
     }
 
     // Enhanced search helper methods
@@ -1152,13 +1021,7 @@ class ModernGameZone {
         this.updateGridView(document.getElementById('gamesGrid'), this.currentView);
     }
 
-    pauseAnimations() {
-        document.body.style.animationPlayState = 'paused';
-    }
 
-    resumeAnimations() {
-        document.body.style.animationPlayState = 'running';
-    }
 }
 
 // Initialize the application
