@@ -45,7 +45,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐",
                 tags: ["Arcade", "Classic", "Quick"],
                 category: "arcade",
-                url: "https://stratamind.github.io/Rock-Paper-Scissors/"
+                url: "games/rps.html"
             },
             {
                 title: "Typing Speed Challenge",
@@ -225,7 +225,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐",
                 tags: ["Memory", "Pattern", "Brain"],
                 category: "puzzle",
-                url: "Games/Memory-Matrix/index.html"
+                url: "games/memory.html"
             },
             {
                 title: "Tetris Evolution",
@@ -234,7 +234,7 @@ class ModernGameZone {
                 rating: "⭐⭐⭐⭐⭐",
                 tags: ["Classic", "Puzzle", "Arcade"],
                 category: "arcade",
-                url: "Games/Tetris/index.html"
+                url: "games/tetris.html"
             },
             {
                 title: "AI Chess Grandmaster",

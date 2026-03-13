@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Memory Matrix - GameZone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: #1a1714;
+            color: #faf8f3;
+            font-family: 'Lora', Georgia, serif;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 400;
+            color: #faf8f3;
+            line-height: 1.2;
+        }
+        
+        a { color: #c9a96e; text-decoration: none; transition: opacity 150ms ease; }
+        a:hover { opacity: 0.75; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #1a1714;
+            border-bottom: 1px solid #3d3830;
+            padding: 1.25rem 0;
+        }
+        
+        .header .container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+        
+        .logo-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #faf8f3;
+            letter-spacing: 0.02em;
+        }
+        
+        .logo-sub {
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: #c9a96e;
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-left: auto;
+        }
+        
+        .nav-link {
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: rgba(250,248,243,0.55);
+            text-decoration: none;
+            transition: color 150ms ease;
+            position: relative;
+        }
+        
+        .nav-link:hover { color: #faf8f3; }
+        .nav-link.active { color: #faf8f3; }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0; right: 0;
+            height: 1px;
+            background: #c9a96e;
+        }
+        
+        .header-controls { display: flex; align-items: center; gap: 0.75rem; }
+        
+        .glass-btn.theme-toggle {
+            background: none;
+            border: 1px solid #3d3830;
+            padding: 0.45rem;
+            cursor: pointer;
+            color: rgba(250,248,243,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 150ms ease, color 150ms ease;
+        }
+        
+        .glass-btn.theme-toggle:hover { border-color: #c9a96e; color: #faf8f3; }
+        .sun-icon { display: none; }
+        .moon-icon { display: block; }
+        
+        .game-page {
+            min-height: calc(100vh - 100px);
+            padding: 4rem 0;
+            background: #1a1714;
+        }
+        
+        .game-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .game-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .game-header h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+        
+        .game-header p {
+            font-size: 1.05rem;
+            color: rgba(250,248,243,0.7);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .game-wrapper {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid #3d3830;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        #gameContainer {
+            text-align: center;
+        }
+        
+        .game-stats {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px 0;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        .stat label {
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #c9a96e;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #00f5ff;
+            text-shadow: 0 0 10px #00f5ff;
+        }
+        
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(4, 100px);
+            gap: 10px;
+            margin: 30px auto;
+            justify-content: center;
+        }
+        
+        .tile {
+            width: 100px;
+            height: 100px;
+            background: #1a1a3e;
+            border: 2px solid #333;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .tile:hover { transform: scale(1.05); }
+        .tile.active { background: #00f5ff; box-shadow: 0 0 20px #00f5ff; }
+        .tile.correct { background: #06ffa5; box-shadow: 0 0 20px #06ffa5; }
+        .tile.wrong { background: #ff006e; box-shadow: 0 0 20px #ff006e; }
+        
+        #info {
+            font-size: 1.2rem;
+            margin: 20px;
+            min-height: 30px;
+            color: #c9a96e;
+        }
+        
+        .game-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            background: #2d2d2d;
+            color: #faf8f3;
+            border: 1px solid #c9a96e;
+            padding: 0.875rem 2rem;
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 150ms ease;
+        }
+        
+        .btn:hover {
+            background: #c9a96e;
+            color: #1a1714;
+        }
+        
+        .btn.secondary {
+            background: transparent;
+            border: 1px solid #c9a96e;
+        }
+        
+        .btn.secondary:hover {
+            background: #c9a96e;
+            color: #1a1714;
+        }
+        
+        .footer {
+            padding: 2rem 0;
+            background: #2d2d2d;
+            border-top: 1px solid #3d3830;
+            text-align: center;
+            color: rgba(250,248,243,0.55);
+            font-size: 0.85rem;
+        }
+        
+        .footer a { color: #c9a96e; }
+        
+        @media (max-width: 768px) {
+            .game-stats { flex-direction: column; }
+            #grid { grid-template-columns: repeat(3, 80px); }
+            .tile { width: 80px; height: 80px; font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <div>
+                    <div class="logo-main">GameZone</div>
+                    <div class="logo-sub">PRO</div>
+                </div>
+            </a>
+
+            <nav class="nav">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../index.html#games" class="nav-link">Games</a>
+                <a href="../index.html#about" class="nav-link">About</a>
+                <a href="https://github.com/stratamind/Game-Zone" target="_blank" rel="noopener" class="nav-link">Contribute</a>
+            </nav>
+
+            <div class="header-controls">
+                <button class="glass-btn theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                    </svg>
+                    <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="game-page">
+        <div class="game-content">
+            <div class="game-header">
+                <h1>🧠 Memory Matrix</h1>
+                <p>Watch the pattern carefully and repeat it back. Each level gets progressively harder. How far can you go?</p>
+            </div>
+
+            <div class="game-wrapper">
+                <div id="gameContainer">
+                    <div class="game-stats">
+                        <div class="stat">
+                            <label>Level</label>
+                            <div class="stat-value" id="level">1</div>
+                        </div>
+                        <div class="stat">
+                            <label>Score</label>
+                            <div class="stat-value" id="score">0</div>
+                        </div>
+                    </div>
+                    <div id="info">Press Start to Begin</div>
+                    <div id="grid"></div>
+                    <div class="game-controls">
+                        <button class="btn" onclick="startGame()">Start Game</button>
+                        <button class="btn secondary" onclick="window.location.href='../index.html'">Back to Home</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>GameZone PRO • <a href="https://github.com/stratamind/Game-Zone" target="_blank" rel="noopener">Open Source</a> • Crafted with passion</p>
+        </div>
+    </footer>
+
+    <script>
+        let level = 1;
+        let score = 0;
+        let pattern = [];
+        let userPattern = [];
+        let gameActive = false;
+        let showingPattern = false;
+
+        function createGrid() {
+            const grid = document.getElementById('grid');
+            grid.innerHTML = '';
+            for (let i = 0; i < 16; i++) {
+                const tile = document.createElement('div');
+                tile.className = 'tile';
+                tile.dataset.index = i;
+                tile.textContent = '';
+                tile.addEventListener('click', () => handleTileClick(i));
+                grid.appendChild(tile);
+            }
+        }
+
+        function generatePattern() {
+            pattern = [];
+            const numTiles = Math.min(3 + level, 12);
+            while (pattern.length < numTiles) {
+                const tile = Math.floor(Math.random() * 16);
+                if (!pattern.includes(tile)) pattern.push(tile);
+            }
+        }
+
+        async function showPattern() {
+            showingPattern = true;
+            document.getElementById('info').textContent = 'Watch carefully!';
+            
+            for (let i = 0; i < pattern.length; i++) {
+                await new Promise(resolve => setTimeout(resolve, 500));
+                const tile = document.querySelector(`[data-index="${pattern[i]}"]`);
+                tile.classList.add('active');
+                await new Promise(resolve => setTimeout(resolve, 600));
+                tile.classList.remove('active');
+            }
+            
+            showingPattern = false;
+            document.getElementById('info').textContent = 'Your turn!';
+        }
+
+        function handleTileClick(index) {
+            if (showingPattern || !gameActive) return;
+            
+            const tile = document.querySelector(`[data-index="${index}"]`);
+            
+            if (pattern.includes(index) && !userPattern.includes(index)) {
+                userPattern.push(index);
+                tile.classList.add('correct');
+                
+                if (userPattern.length === pattern.length) {
+                    score += level * 10;
+                    document.getElementById('score').textContent = score;
+                    document.getElementById('info').textContent = '✓ Perfect! Next level...';
+                    
+                    setTimeout(() => {
+                        level++;
+                        document.getElementById('level').textContent = level;
+                        nextRound();
+                    }, 1500);
+                }
+            } else {
+                tile.classList.add('wrong');
+                gameActive = false;
+                document.getElementById('info').textContent = `Game Over! Final Score: ${score}`;
+                setTimeout(() => {
+                    tile.classList.remove('wrong');
+                }, 1000);
+            }
+        }
+
+        async function nextRound() {
+            userPattern = [];
+            document.querySelectorAll('.tile').forEach(t => {
+                t.classList.remove('correct', 'wrong', 'active');
+            });
+            generatePattern();
+            await showPattern();
+        }
+
+        async function startGame() {
+            level = 1;
+            score = 0;
+            userPattern = [];
+            gameActive = true;
+            document.getElementById('level').textContent = '1';
+            document.getElementById('score').textContent = '0';
+            createGrid();
+            generatePattern();
+            await showPattern();
+        }
+
+        createGrid();
+
+        document.getElementById('themeToggle').addEventListener('click', function() {
+            document.documentElement.setAttribute('data-theme', 
+                document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+        });
+    </script>
+</body>
+</html>
