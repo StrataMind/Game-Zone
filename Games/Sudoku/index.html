@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Master</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            color: #00ff88;
+        }
+        #container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 40px rgba(0, 255, 136, 0.3);
+        }
+        h1 { margin-bottom: 20px; text-shadow: 0 0 15px #00ff88; }
+        #sudoku {
+            display: grid;
+            grid-template-columns: repeat(9, 50px);
+            gap: 2px;
+            margin: 20px auto;
+            background: #00ff88;
+            padding: 2px;
+            border: 3px solid #00ff88;
+        }
+        .cell {
+            width: 50px;
+            height: 50px;
+            background: #0f0f23;
+            border: 1px solid #333;
+            font-size: 24px;
+            text-align: center;
+            color: #00ccff;
+            cursor: pointer;
+        }
+        .cell:focus { outline: 3px solid #ff006e; background: #1a1a3e; }
+        .cell.fixed { background: #16213e; color: #00ff88; font-weight: bold; }
+        .cell.error { background: #ff006e; color: #fff; }
+        .cell:nth-child(3n) { border-right: 2px solid #00ff88; }
+        .cell:nth-child(n+19):nth-child(-n+27), .cell:nth-child(n+46):nth-child(-n+54) { border-bottom: 2px solid #00ff88; }
+        button {
+            background: #00ff88;
+            color: #0a0e27;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 10px 5px;
+            transition: all 0.3s;
+        }
+        button:hover { background: #00ccff; transform: scale(1.05); }
+        #timer { font-size: 20px; margin: 15px; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>🧩 SUDOKU MASTER</h1>
+        <div id="timer">Time: 00:00</div>
+        <div id="sudoku"></div>
+        <button onclick="newGame('easy')">Easy</button>
+        <button onclick="newGame('medium')">Medium</button>
+        <button onclick="newGame('hard')">Hard</button>
+        <button onclick="checkSolution()">Check</button>
+        <button onclick="location.href='../../index.html'">Back</button>
+    </div>
+
+    <script>
+        let board = [];
+        let solution = [];
+        let timer = 0;
+        let timerInterval;
+
+        function generateSudoku(difficulty) {
+            const base = 3;
+            const side = base * base;
+            
+            function pattern(r, c) { return (base * (r % base) + Math.floor(r / base) + c) % side; }
+            function shuffle(s) { return s.sort(() => Math.random() - 0.5); }
+            
+            let rBase = [...Array(base).keys()];
+            let rows = []; for (let g of shuffle(rBase)) for (let r of shuffle([...Array(base).keys()])) rows.push(g * base + r);
+            let cols = []; for (let g of shuffle(rBase)) for (let c of shuffle([...Array(base).keys()])) cols.push(g * base + c);
+            let nums = shuffle([...Array(side).keys()].map(x => x + 1));
+            
+            let board = [];
+            for (let r of rows) {
+                let row = [];
+                for (let c of cols) row.push(nums[pattern(r, c)]);
+                board.push(row);
+            }
+            
+            solution = board.map(row => [...row]);
+            
+            const squares = side * side;
+            const empties = difficulty === 'easy' ? 30 : difficulty === 'medium' ? 45 : 55;
+            
+            for (let i = 0; i < empties; i++) {
+                let r = Math.floor(Math.random() * side);
+                let c = Math.floor(Math.random() * side);
+                while (board[r][c] === 0) {
+                    r = Math.floor(Math.random() * side);
+                    c = Math.floor(Math.random() * side);
+                }
+                board[r][c] = 0;
+            }
+            
+            return board;
+        }
+
+        function renderBoard() {
+            const sudoku = document.getElementById('sudoku');
+            sudoku.innerHTML = '';
+            
+            for (let i = 0; i < 9; i++) {
+                for (let j = 0; j < 9; j++) {
+                    const cell = document.createElement('input');
+                    cell.className = 'cell';
+                    cell.type = 'text';
+                    cell.maxLength = 1;
+                    cell.dataset.row = i;
+                    cell.dataset.col = j;
+                    
+                    if (board[i][j] !== 0) {
+                        cell.value = board[i][j];
+                        cell.classList.add('fixed');
+                        cell.readOnly = true;
+                    }
+                    
+                    cell.addEventListener('input', (e) => {
+                        const val = e.target.value;
+                        if (val && !/^[1-9]$/.test(val)) e.target.value = '';
+                    });
+                    
+                    sudoku.appendChild(cell);
+                }
+            }
+        }
+
+        function checkSolution() {
+            const cells = document.querySelectorAll('.cell');
+            let correct = true;
+            
+            cells.forEach(cell => {
+                const row = parseInt(cell.dataset.row);
+                const col = parseInt(cell.dataset.col);
+                const val = parseInt(cell.value) || 0;
+                
+                cell.classList.remove('error');
+                
+                if (val !== solution[row][col]) {
+                    if (val !== 0) cell.classList.add('error');
+                    correct = false;
+                }
+            });
+            
+            if (correct && !Array.from(cells).some(c => !c.value)) {
+                clearInterval(timerInterval);
+                alert('🎉 Congratulations! You solved it!');
+            }
+        }
+
+        function newGame(difficulty) {
+            board = generateSudoku(difficulty);
+            renderBoard();
+            timer = 0;
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                timer++;
+                const mins = Math.floor(timer / 60).toString().padStart(2, '0');
+                const secs = (timer % 60).toString().padStart(2, '0');
+                document.getElementById('timer').textContent = `Time: ${mins}:${secs}`;
+            }, 1000);
+        }
+
+        newGame('easy');
+    </script>
+</body>
+</html>

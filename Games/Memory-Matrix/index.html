@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Matrix</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            color: #00f5ff;
+        }
+        #container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(0, 245, 255, 0.4);
+        }
+        h1 { margin-bottom: 20px; text-shadow: 0 0 20px #00f5ff; }
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(4, 100px);
+            gap: 10px;
+            margin: 30px auto;
+        }
+        .tile {
+            width: 100px;
+            height: 100px;
+            background: #1a1a3e;
+            border: 2px solid #333;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .tile:hover { transform: scale(1.05); }
+        .tile.active { background: #00f5ff; box-shadow: 0 0 20px #00f5ff; }
+        .tile.correct { background: #06ffa5; box-shadow: 0 0 20px #06ffa5; }
+        .tile.wrong { background: #ff006e; box-shadow: 0 0 20px #ff006e; }
+        #info { font-size: 24px; margin: 20px; min-height: 30px; }
+        #level, #score { font-size: 20px; margin: 10px; }
+        button {
+            background: #00f5ff;
+            color: #0f0f23;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 10px;
+            transition: all 0.3s;
+        }
+        button:hover { background: #06ffa5; transform: scale(1.05); }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>🧠 MEMORY MATRIX</h1>
+        <div id="level">Level: 1</div>
+        <div id="score">Score: 0</div>
+        <div id="info">Watch the pattern!</div>
+        <div id="grid"></div>
+        <button onclick="startGame()">Start Game</button>
+        <button onclick="location.href='../../index.html'">Back to GameZone</button>
+    </div>
+
+    <script>
+        let level = 1;
+        let score = 0;
+        let pattern = [];
+        let userPattern = [];
+        let gameActive = false;
+        let showingPattern = false;
+
+        function createGrid() {
+            const grid = document.getElementById('grid');
+            grid.innerHTML = '';
+            for (let i = 0; i < 16; i++) {
+                const tile = document.createElement('div');
+                tile.className = 'tile';
+                tile.dataset.index = i;
+                tile.addEventListener('click', () => handleTileClick(i));
+                grid.appendChild(tile);
+            }
+        }
+
+        function generatePattern() {
+            pattern = [];
+            const numTiles = Math.min(3 + level, 12);
+            while (pattern.length < numTiles) {
+                const tile = Math.floor(Math.random() * 16);
+                if (!pattern.includes(tile)) pattern.push(tile);
+            }
+        }
+
+        async function showPattern() {
+            showingPattern = true;
+            document.getElementById('info').textContent = 'Watch carefully!';
+            
+            for (let i = 0; i < pattern.length; i++) {
+                await new Promise(resolve => setTimeout(resolve, 500));
+                const tile = document.querySelector(`[data-index="${pattern[i]}"]`);
+                tile.classList.add('active');
+                await new Promise(resolve => setTimeout(resolve, 600));
+                tile.classList.remove('active');
+            }
+            
+            showingPattern = false;
+            document.getElementById('info').textContent = 'Your turn!';
+        }
+
+        function handleTileClick(index) {
+            if (showingPattern || !gameActive) return;
+            
+            const tile = document.querySelector(`[data-index="${index}"]`);
+            
+            if (pattern.includes(index) && !userPattern.includes(index)) {
+                userPattern.push(index);
+                tile.classList.add('correct');
+                
+                if (userPattern.length === pattern.length) {
+                    score += level * 10;
+                    document.getElementById('score').textContent = `Score: ${score}`;
+                    document.getElementById('info').textContent = '✓ Perfect!';
+                    
+                    setTimeout(() => {
+                        level++;
+                        document.getElementById('level').textContent = `Level: ${level}`;
+                        nextRound();
+                    }, 1500);
+                }
+            } else {
+                tile.classList.add('wrong');
+                gameActive = false;
+                document.getElementById('info').textContent = `Game Over! Final Score: ${score}`;
+                setTimeout(() => {
+                    tile.classList.remove('wrong');
+                }, 1000);
+            }
+        }
+
+        async function nextRound() {
+            userPattern = [];
+            document.querySelectorAll('.tile').forEach(t => {
+                t.classList.remove('correct', 'wrong', 'active');
+            });
+            generatePattern();
+            await showPattern();
+        }
+
+        async function startGame() {
+            level = 1;
+            score = 0;
+            userPattern = [];
+            gameActive = true;
+            document.getElementById('level').textContent = 'Level: 1';
+            document.getElementById('score').textContent = 'Score: 0';
+            createGrid();
+            generatePattern();
+            await showPattern();
+        }
+
+        createGrid();
+    </script>
+</body>
+</html>

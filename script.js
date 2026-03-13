@@ -199,6 +199,51 @@ class ModernGameZone {
                 tags: ["Pong", "AI", "Cosmic", "Neural"],
                 category: "ai",
                 url: "https://stratamind.github.io/Cosmic-Pong---Neural-Arena/"
+            },
+            {
+                title: "Space Invaders Reborn",
+                description: "Classic arcade shooter reimagined with modern graphics, power-ups, and intense alien waves.",
+                image: "Images/Space-Invaders.png",
+                rating: "⭐⭐⭐⭐⭐",
+                tags: ["Shooter", "Classic", "Arcade"],
+                category: "arcade",
+                url: "Games/Space-Invaders/index.html"
+            },
+            {
+                title: "Sudoku Master",
+                description: "Challenge your logic with classic Sudoku puzzles featuring multiple difficulty levels and hints.",
+                image: "Images/Sudoku.png",
+                rating: "⭐⭐⭐⭐⭐",
+                tags: ["Logic", "Numbers", "Brain"],
+                category: "puzzle",
+                url: "Games/Sudoku/index.html"
+            },
+            {
+                title: "Memory Matrix",
+                description: "Test your memory with increasingly complex patterns and sequences in this cognitive challenge.",
+                image: "Images/Memory-Matrix.png",
+                rating: "⭐⭐⭐⭐",
+                tags: ["Memory", "Pattern", "Brain"],
+                category: "puzzle",
+                url: "Games/Memory-Matrix/index.html"
+            },
+            {
+                title: "Tetris Evolution",
+                description: "The legendary block-stacking game with modern twists, special blocks, and competitive modes.",
+                image: "Images/Tetris.png",
+                rating: "⭐⭐⭐⭐⭐",
+                tags: ["Classic", "Puzzle", "Arcade"],
+                category: "arcade",
+                url: "Games/Tetris/index.html"
+            },
+            {
+                title: "AI Chess Grandmaster",
+                description: "Advanced chess engine with multiple AI personalities, opening books, and detailed analysis.",
+                image: "Images/AI-Chess.png",
+                rating: "⭐⭐⭐⭐⭐",
+                tags: ["AI", "Strategy", "Chess"],
+                category: "ai",
+                url: "#"
             }
         ];
 

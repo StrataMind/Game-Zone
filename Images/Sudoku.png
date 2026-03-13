@@ -1,0 +1,9 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#1a1a2e"/>
+  <rect x="100" y="75" width="200" height="200" fill="#16213e" stroke="#00ff88" stroke-width="3"/>
+  <line x1="167" y1="75" x2="167" y2="275" stroke="#00ff88" stroke-width="1"/>
+  <line x1="233" y1="75" x2="233" y2="275" stroke="#00ff88" stroke-width="1"/>
+  <line x1="100" y1="142" x2="300" y2="142" stroke="#00ff88" stroke-width="1"/>
+  <line x1="100" y1="208" x2="300" y2="208" stroke="#00ff88" stroke-width="1"/>
+  <text x="200" y="40" font-family="Arial" font-size="28" fill="#00ff88" text-anchor="middle" font-weight="bold">Sudoku Master</text>
+</svg>
